@@ -1,9 +1,9 @@
 extends AnimatedSprite2D
 
 
-func update(direction: int, move_speed: int, velocity: Vector2):
+func update(direction: int, move_speed: int):
 	_set_animation_speed(move_speed)
-	_set_animation(direction, velocity)
+	_set_animation(direction, move_speed)
 
 
 func _set_animation_speed(move_speed: int):
@@ -15,16 +15,18 @@ func _set_animation_speed(move_speed: int):
 		speed_scale = 1.5
 	elif (move_speed == Constant.MOVE_SPEED_4):
 		speed_scale = 0.0
+	else:
+		speed_scale = 0
 
 
-func _set_animation(direction: int, velocity: Vector2):
-	if direction == Direction.NORTH and velocity.y != 0:
+func _set_animation(direction: int, move_speed: int):
+	if direction == Direction.NORTH and move_speed > Constant.MOVE_SPEED_0:
 		play("north_moving")
-	elif direction == Direction.SOUTH and velocity.y != 0:
+	elif direction == Direction.SOUTH and move_speed > Constant.MOVE_SPEED_0:
 		play("south_moving")
-	elif direction == Direction.WEST and velocity.x != 0:
+	elif direction == Direction.WEST and move_speed > Constant.MOVE_SPEED_0:
 		play("west_moving")
-	elif direction == Direction.EAST and velocity.x != 0:
+	elif direction == Direction.EAST and move_speed > Constant.MOVE_SPEED_0:
 		play("east_moving")
 	elif direction == Direction.NORTH:
 		play("north_idle")

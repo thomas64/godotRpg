@@ -178,15 +178,15 @@ animations = [{
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sgwqt")
-metadata/_edit_group_ = true
 
 [node name="player_input" type="Node" parent="."]
 script = ExtResource("2_wkjb4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_ap348")
-animation = &"west_moving"
-frame_progress = 0.225667
+animation = &"south_idle"
 script = ExtResource("4_48nph")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 17, -7, 0, -14, -17, -7)

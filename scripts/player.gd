@@ -8,4 +8,4 @@ func _physics_process(_delta):
 	velocity = $player_input.velocity
 
 	move_and_slide()
-	$AnimatedSprite2D.update(direction, move_speed, velocity)
+	$AnimatedSprite2D.update(direction, move_speed)
