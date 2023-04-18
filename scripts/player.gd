@@ -7,5 +7,10 @@ func _physics_process(delta):
 	var move_speed = $player_input.move_speed
 	velocity = $player_input.velocity
 
+	if move_speed == Constant.MOVE_SPEED_4:
+		collision_mask = 2
+	else:
+		collision_mask = 1
+
 	move_and_slide()
 	$AnimatedSprite2D.update(direction, move_speed)
