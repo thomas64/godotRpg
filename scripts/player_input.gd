@@ -1,6 +1,8 @@
 extends Node
 
 
+const _TURN_DELAY_TIME: float = 0.1
+
 var direction: int = Direction.SOUTH
 var move_speed: int = Constant.MOVE_SPEED_0
 var velocity: Vector2 = Vector2.ZERO
@@ -13,12 +15,14 @@ var _press_right: bool = false
 var _press_ctrl: bool = false
 var _press_shift: bool = false
 
+var _turn_delay: float = 0
 
-func update():
+func update(delta):
 	_process_key_input()
 	_set_move_speed()
+	_set_turn_delay()
 	_set_direction()
-	_set_velocity()
+	_set_velocity(delta)
 
 
 func _process_key_input():
@@ -32,7 +36,7 @@ func _process_key_input():
 
 
 func _set_move_speed():
-	if !_press_up and !_press_down and !_press_left and !_press_right:
+	if !_are_move_keys_pressed():
 		move_speed = Constant.MOVE_SPEED_0
 	elif _press_up and _press_down:
 		move_speed = Constant.MOVE_SPEED_0
@@ -46,6 +50,14 @@ func _set_move_speed():
 		move_speed = Constant.MOVE_SPEED_1
 	else:
 		move_speed = Constant.MOVE_SPEED_2
+
+
+func _set_turn_delay():
+	if _turn_delay <= 0 and velocity == Vector2.ZERO and _is_key_press_other_direction():
+		_turn_delay = _TURN_DELAY_TIME
+
+	if !_are_move_keys_pressed():
+		_turn_delay = 0
 
 
 func _set_direction():
@@ -63,7 +75,25 @@ func _set_direction():
 		direction = Direction.SOUTH
 
 
-func _set_velocity():
-	var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * move_speed
+func _set_velocity(delta):
+	if _are_move_keys_pressed():
+		if _turn_delay > 0:
+			_turn_delay -= delta
+			# move_speed = Constant.MOVE_SPEED_0 # enable line for turning player without animation
+		else:
+			var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			velocity = input_direction * move_speed
+	else:
+		velocity = Vector2.ZERO
+
+
+func _are_move_keys_pressed() -> bool:
+	return _press_up or _press_down or _press_left or _press_right
+
+
+func _is_key_press_other_direction() -> bool:
+	return (_press_up and !(_press_left or _press_right) and direction != Direction.NORTH) \
+		or (_press_down and !(_press_left or _press_right) and direction != Direction.SOUTH) \
+		or (_press_left and !(_press_up or _press_down) and direction != Direction.WEST) \
+		or (_press_right and !(_press_up or _press_down) and direction != Direction.EAST)
 

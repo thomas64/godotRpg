@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-func _physics_process(_delta):
-	$player_input.update()
+func _physics_process(delta):
+	$player_input.update(delta)
 	var direction = $player_input.direction
 	var move_speed = $player_input.move_speed
 	velocity = $player_input.velocity
