@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://briimju4jy8dx"]
+[gd_scene load_steps=6 format=3 uid="uid://qr4e7ahvnym2"]
 
-[ext_resource type="PackedScene" path="res://maps/honeywood_forest_path.tscn" id="1_7ywit"]
+[ext_resource type="PackedScene" uid="uid://hy5b8gjmbfur" path="res://maps/honeywood_forest_path.tscn" id="1_7ywit"]
 [ext_resource type="PackedScene" uid="uid://dwim6emqyxkvb" path="res://scenes/player.tscn" id="2_hee7s"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_44s5k"]
+[ext_resource type="Script" path="res://scripts/forest_light.gd" id="3_mf6ic"]
+[ext_resource type="Texture2D" uid="uid://ceosdtdclivux" path="res://assets/lightmaps/forest.png" id="3_om1b4"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 
 [node name="honeywood_forest_path" parent="." instance=ExtResource("1_7ywit")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
+energy = 2.0
+texture = ExtResource("3_om1b4")
+script = ExtResource("3_mf6ic")
+
 [node name="player" parent="." instance=ExtResource("2_hee7s")]
 position = Vector2(504, 1200)
 
 [node name="Camera2D" type="Camera2D" parent="player" node_paths=PackedStringArray("tile_map")]
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true

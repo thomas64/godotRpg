@@ -7,16 +7,12 @@ func update(direction: int, move_speed: int):
 
 
 func _set_animation_speed(move_speed: int):
-	if (move_speed == Constant.MOVE_SPEED_1):
-		speed_scale = 0.5
-	elif (move_speed == Constant.MOVE_SPEED_2):
-		speed_scale = 1.0
-	elif (move_speed == Constant.MOVE_SPEED_3):
-		speed_scale = 1.5
-	elif (move_speed == Constant.MOVE_SPEED_4):
-		speed_scale = 0
-	else:
-		speed_scale = 0
+	match move_speed:
+		Constant.MOVE_SPEED_1: speed_scale = 0.5
+		Constant.MOVE_SPEED_2: speed_scale = 1.0
+		Constant.MOVE_SPEED_3: speed_scale = 1.5
+		Constant.MOVE_SPEED_4: speed_scale = 0
+		_:						speed_scale = 0
 
 
 func _set_animation(direction: int, move_speed: int):
