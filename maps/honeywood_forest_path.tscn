@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://hy5b8gjmbfur"]
+[gd_scene load_steps=9 format=3 uid="uid://bd6y6np6bgp27"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/tilesets.tres" id="1_1uutn"]
+[ext_resource type="Script" path="res://scripts/tile_map.gd" id="2_7jeit"]
 [ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="5_8vwcj"]
 [ext_resource type="PackedScene" uid="uid://vq1fmvc5dosn" path="res://scenes/lightmap_camera.tscn" id="5_q5oct"]
 [ext_resource type="AudioStream" uid="uid://bh0ejtmhs3j1m" path="res://assets/audio/bgs/birds.ogg" id="6_3utnn"]
@@ -43,6 +44,8 @@ layer_4/y_sort_enabled = true
 layer_4/y_sort_origin = 0
 layer_4/z_index = 1
 layer_4/tile_data = PackedInt32Array(1703963, 1114113, 0, 1966094, 1310721, 0, 4194321, 65537, 26, 4194322, 131073, 26, 4194327, 65537, 26, 4194328, 131073, 26, 4259856, 1, 27, 4259857, 65537, 27, 4259858, 131073, 27, 4259859, 196609, 27, 4259862, 1, 27, 4259863, 65537, 27, 4259864, 131073, 27, 4259865, 196609, 27, 4325392, 1, 28, 4325393, 65537, 28, 4325394, 131073, 28, 4325395, 196609, 28, 4325398, 1, 28, 4325399, 65537, 28, 4325400, 131073, 28, 4325401, 196609, 28, 4390928, 1, 29, 4390929, 65537, 29, 4390930, 131073, 29, 4390931, 196609, 29, 4390934, 1, 29, 4390935, 65537, 29, 4390936, 131073, 29, 4390937, 196609, 29, 4456464, 1, 30, 4456465, 65537, 30, 4456466, 131073, 30, 4456467, 196609, 30, 4456470, 1, 30, 4456471, 65537, 30, 4456472, 131073, 30, 4456473, 196609, 30, 4522000, 1, 31, 4522001, 65537, 31, 4522002, 131073, 31, 4522003, 196609, 31, 4522006, 1, 31, 4522007, 65537, 31, 4522008, 131073, 31, 4522009, 196609, 31)
+script = ExtResource("2_7jeit")
+metadata/step_sound = "grass"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -55,15 +58,15 @@ texture = ExtResource("7_cw6bh")
 
 [node name="bgm_journey" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_8vwcj")
-volume_db = -3.0
+volume_db = -9.0
 autoplay = true
 
 [node name="bgs_birds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3utnn")
-volume_db = -3.0
+volume_db = -9.0
 autoplay = true
 
 [node name="bgs_creek" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_v3foj")
-volume_db = 3.0
+volume_db = -3.0
 autoplay = true

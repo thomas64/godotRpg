@@ -79,7 +79,7 @@ func _set_velocity(delta):
 	if _are_move_keys_pressed():
 		if _turn_delay > 0:
 			_turn_delay -= delta
-			# move_speed = Constant.MOVE_SPEED_0 # enable line for turning player without animation
+			move_speed = Constant.MOVE_SPEED_0
 		else:
 			var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 			velocity = input_direction * move_speed

@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwim6emqyxkvb"]
+[gd_scene load_steps=24 format=3 uid="uid://ds66xse3tk4nd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sgwqt"]
 [ext_resource type="Texture2D" uid="uid://do7pnkpkx2vje" path="res://assets/characters/hero1.png" id="2_rs6tv"]
 [ext_resource type="Script" path="res://scripts/player_input.gd" id="2_wkjb4"]
 [ext_resource type="Script" path="res://scripts/player_animation.gd" id="4_48nph"]
+[ext_resource type="PackedScene" uid="uid://bjegse8eew5ba" path="res://scenes/entity_footsteps.tscn" id="5_b6dcy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7p5d"]
 atlas = ExtResource("2_rs6tv")
@@ -177,12 +178,13 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_sgwqt")
 
 [node name="player_input" type="Node" parent="."]
 script = ExtResource("2_wkjb4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="move_animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_ap348")
 animation = &"south_idle"
@@ -190,3 +192,5 @@ script = ExtResource("4_48nph")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 17, -7, 0, -14, -17, -7)
+
+[node name="entity_footsteps" parent="." instance=ExtResource("5_b6dcy")]
