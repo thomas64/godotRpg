@@ -1,25 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://qr4e7ahvnym2"]
+[gd_scene load_steps=4 format=3 uid="uid://qr4e7ahvnym2"]
 
 [ext_resource type="PackedScene" uid="uid://hy5b8gjmbfur" path="res://maps/honeywood_forest_path.tscn" id="1_7ywit"]
 [ext_resource type="PackedScene" uid="uid://dwim6emqyxkvb" path="res://scenes/player.tscn" id="2_hee7s"]
-[ext_resource type="PackedScene" uid="uid://vq1fmvc5dosn" path="res://scenes/lightmap_camera.tscn" id="2_x7ng3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_44s5k"]
-[ext_resource type="Texture2D" uid="uid://ceosdtdclivux" path="res://assets/lightmaps/forest.png" id="3_om1b4"]
-[ext_resource type="Texture2D" uid="uid://bqirqvum2mjv5" path="res://assets/lightmaps/sunlight.png" id="4_avmqm"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 
 [node name="honeywood_forest_path" parent="." instance=ExtResource("1_7ywit")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="forest" parent="CanvasLayer" instance=ExtResource("2_x7ng3")]
-texture = ExtResource("3_om1b4")
-
-[node name="sunlight" parent="CanvasLayer" instance=ExtResource("2_x7ng3")]
-energy = 3.0
-texture = ExtResource("4_avmqm")
 
 [node name="player" parent="." instance=ExtResource("2_hee7s")]
 position = Vector2(504, 1200)
