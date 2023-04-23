@@ -1,22 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://qr4e7ahvnym2"]
+[gd_scene load_steps=3 format=3 uid="uid://qr4e7ahvnym2"]
 
-[ext_resource type="PackedScene" uid="uid://bd6y6np6bgp27" path="res://maps/honeywood_forest_path.tscn" id="1_7ywit"]
-[ext_resource type="PackedScene" uid="uid://bj7yd6d8a4nrg" path="res://scenes/player.tscn" id="2_hee7s"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="3_44s5k"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_tcg73"]
+[ext_resource type="PackedScene" uid="uid://bqm61vxx6lf77" path="res://scenes/player.tscn" id="2_hee7s"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
-
-[node name="honeywood_forest_path" parent="." instance=ExtResource("1_7ywit")]
+script = ExtResource("1_tcg73")
 
 [node name="player" parent="." instance=ExtResource("2_hee7s")]
 position = Vector2(504, 1200)
-
-[node name="Camera2D" type="Camera2D" parent="player" node_paths=PackedStringArray("tile_map")]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("3_44s5k")
-tile_map = NodePath("../../honeywood_forest_path")

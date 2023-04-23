@@ -29,7 +29,7 @@ func _set_collision_mask():
 
 
 func _play_footsteps():
-	var tile_map: TileMap = get_parent().get_children().front() as TileMap
+	var tile_map: TileMap = get_parent().get_children().front()
 	var underground = tile_map.get_underground_for(_get_offset_feet_position())
 	$character_footsteps_audio.play_sound(underground)
 
