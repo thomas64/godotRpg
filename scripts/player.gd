@@ -3,13 +3,14 @@ extends CharacterBody2D
 
 var direction: int
 var move_speed: int
+@export var _feet_offset: float
 
 
 func _physics_process(delta):
 	_update_physics(delta)
 	_set_collision_mask()
 	move_and_slide()
-	$move_animation.update()
+	$character_sprite_animation.animate()
 	_play_footsteps()
 
 
@@ -30,7 +31,7 @@ func _set_collision_mask():
 func _play_footsteps():
 	var tile_map: TileMap = get_parent().get_children().front() as TileMap
 	var underground = tile_map.get_underground_for(_get_offset_feet_position())
-	$entity_footsteps.play_sound(underground)
+	$character_footsteps_audio.play_sound(underground)
 
 
 func _get_offset_feet_position() -> Vector2:
@@ -38,9 +39,9 @@ func _get_offset_feet_position() -> Vector2:
 		return position
 	else:
 		match direction:
-			Direction.NORTH: return Vector2(position.x, position.y - (move_speed / 10))
-			Direction.SOUTH: return Vector2(position.x, position.y + (move_speed / 10))
-			Direction.WEST: return Vector2(position.x - (move_speed / 10), position.y)
-			Direction.EAST: return Vector2(position.x + (move_speed / 10), position.y)
+			Direction.NORTH: return Vector2(position.x, position.y - (move_speed / _feet_offset))
+			Direction.SOUTH: return Vector2(position.x, position.y + (move_speed / _feet_offset))
+			Direction.WEST: return Vector2(position.x - (move_speed / _feet_offset), position.y)
+			Direction.EAST: return Vector2(position.x + (move_speed / _feet_offset), position.y)
 			_: return Vector2.ZERO
 
