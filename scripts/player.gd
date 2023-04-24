@@ -6,6 +6,15 @@ var move_speed: int
 @export var _feet_offset: float
 
 
+func _ready():
+	_possible_set_last_direction()
+	_possible_spawn_player()
+
+
+func stop_animation():
+	$character_sprite_animation.stop()
+
+
 func _physics_process(delta):
 	_update_physics(delta)
 	_set_collision_mask()
@@ -29,7 +38,7 @@ func _set_collision_mask():
 
 
 func _play_footsteps():
-	var tile_map: TileMap = get_parent().get_children().front()
+	var tile_map: TileMap = get_parent().get_node("TileMap")
 	var underground = tile_map.get_underground_for(_get_offset_feet_position())
 	$character_footsteps_audio.play_sound(underground)
 
@@ -44,4 +53,15 @@ func _get_offset_feet_position() -> Vector2:
 			Direction.WEST: return Vector2(position.x - (move_speed / _feet_offset), position.y)
 			Direction.EAST: return Vector2(position.x + (move_speed / _feet_offset), position.y)
 			_: return Vector2.ZERO
+
+
+func _possible_set_last_direction():
+	if SceneSwitcher.has_param("direction"):
+		$player_input.direction = SceneSwitcher.get_param("direction")
+
+
+func _possible_spawn_player():
+	if SceneSwitcher.has_param("spawn_point"):
+		position = get_parent().get_node(SceneSwitcher.get_param("spawn_point")).position
+		$Camera2D.reset_smoothing()
 

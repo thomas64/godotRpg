@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://k2otwbd75j3g" path="res://scenes/character_footsteps_audio.tscn" id="5_b6dcy"]
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 0
 script = ExtResource("1_sgwqt")
 _feet_offset = 10.0
 

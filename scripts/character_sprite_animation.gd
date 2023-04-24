@@ -13,6 +13,10 @@ func animate():
 	_set_animation()
 
 
+func stop():
+	$AnimationPlayer.stop()
+
+
 func _set_animation_speed():
 	match _move_speed:
 		Constant.MOVE_SPEED_1: $AnimationPlayer.speed_scale = 0.5
@@ -32,10 +36,14 @@ func _set_animation():
 	elif _direction == Direction.EAST and _move_speed > Constant.MOVE_SPEED_0:
 		$AnimationPlayer.play("east_moving")
 	else:
-		$AnimationPlayer.stop()
-		match _direction:
-			Direction.NORTH: frame = 10
-			Direction.SOUTH: frame = 1
-			Direction.WEST: frame = 4
-			Direction.EAST: frame = 7
+		_stop_and_set_frame_based_on_direction()
+
+
+func _stop_and_set_frame_based_on_direction():
+	$AnimationPlayer.stop()
+	match _direction:
+		Direction.NORTH: frame = 10
+		Direction.SOUTH: frame = 1
+		Direction.WEST: frame = 4
+		Direction.EAST: frame = 7
 

@@ -1,9 +1,10 @@
 extends Node
 
 
+const _INPUT_DELAY_TIME: float = 0.5
 const _TURN_DELAY_TIME: float = 0.1
 
-var direction: int = Direction.SOUTH
+var direction: int
 var move_speed: int = Constant.MOVE_SPEED_0
 var velocity: Vector2 = Vector2.ZERO
 
@@ -15,9 +16,18 @@ var _press_right: bool = false
 var _press_ctrl: bool = false
 var _press_shift: bool = false
 
+var _input_delay: float = 0
 var _turn_delay: float = 0
 
+
+func _ready():
+	_input_delay = _INPUT_DELAY_TIME
+
+
 func update(delta):
+	if _input_delay > 0:
+		_input_delay -= delta
+		return
 	_process_key_input()
 	_set_move_speed()
 	_set_turn_delay()

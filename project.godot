@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="godotRpg"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://maps/honeywood_forest_path.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+AudioManager="*res://scenes/audio_manager.tscn"
+SceneSwitcher="*res://scripts/scene_switcher.gd"
 
 [display]
 

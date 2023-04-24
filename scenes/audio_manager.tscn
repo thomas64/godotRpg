@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1g6wwg7bragl"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_h1aaj"]
+[ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="2_4hxoo"]
+[ext_resource type="AudioStream" uid="uid://bh0ejtmhs3j1m" path="res://assets/audio/bgs/birds.ogg" id="3_5e8sj"]
+[ext_resource type="AudioStream" uid="uid://cp8oy11ey3ghk" path="res://assets/audio/bgs/creek.ogg" id="4_uqv6a"]
+
+[node name="audio_manager" type="Node"]
+script = ExtResource("1_h1aaj")
+
+[node name="bgm_journey" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4hxoo")
+volume_db = -9.0
+
+[node name="bgs_birds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5e8sj")
+volume_db = -9.0
+
+[node name="bgs_creek" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uqv6a")
+volume_db = -3.0
