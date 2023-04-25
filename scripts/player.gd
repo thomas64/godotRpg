@@ -53,7 +53,7 @@ func _get_offset_feet_position() -> Vector2:
 			Direction.SOUTH: return Vector2(position.x, position.y + (move_speed / _feet_offset))
 			Direction.WEST: return Vector2(position.x - (move_speed / _feet_offset), position.y)
 			Direction.EAST: return Vector2(position.x + (move_speed / _feet_offset), position.y)
-			_: return Vector2.ZERO
+			_: 				return Vector2.ZERO
 
 
 func _possible_set_previous_direction():

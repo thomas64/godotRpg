@@ -1,19 +1,16 @@
 extends Node
 
 
-var _sounds: Dictionary
-var _move_speed: int
-
+@onready var _sounds: Dictionary = {
+	"carpet": $sound_pool_carpet,
+	"grass": $sound_pool_grass,
+	"sand": $sound_pool_sand,
+	"stone": $sound_pool_stone,
+	"water": $sound_pool_water,
+	"wood": $sound_pool_wood
+}
 var _step_delay: float = 0
-
-
-func _ready():
-	_sounds = { "carpet": $sound_pool_carpet,
-				"grass": $sound_pool_grass,
-				"sand": $sound_pool_sand,
-				"stone": $sound_pool_stone,
-				"water": $sound_pool_water,
-				"wood": $sound_pool_wood }
+var _move_speed: int
 
 
 func _physics_process(delta):
@@ -37,5 +34,5 @@ func _get_frame_time() -> float:
 		Constant.MOVE_SPEED_2: return Constant.NORMAL_FRAMES
 		Constant.MOVE_SPEED_3: return Constant.FAST_FRAMES
 		Constant.MOVE_SPEED_4: return Constant.NO_FRAMES
-		_:						 return Constant.NO_FRAMES
+		_: 						return Constant.NO_FRAMES
 

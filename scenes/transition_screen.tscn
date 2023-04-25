@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvjodmsw2phk"]
+[gd_scene load_steps=6 format=3 uid="uid://cvjodmsw2phk"]
+
+[ext_resource type="Script" path="res://scripts/transition_screen.gd" id="1_pgxox"]
 
 [sub_resource type="Animation" id="Animation_fkfov"]
 length = 0.001
@@ -55,6 +57,7 @@ _data = {
 }
 
 [node name="transition_screen" type="CanvasLayer"]
+script = ExtResource("1_pgxox")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

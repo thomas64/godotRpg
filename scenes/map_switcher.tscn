@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6x4g0dhnlc7s"]
+[gd_scene load_steps=3 format=3 uid="uid://b6x4g0dhnlc7s"]
 
 [ext_resource type="Script" path="res://scripts/map_switcher.gd" id="1_x01gb"]
-[ext_resource type="PackedScene" uid="uid://cvjodmsw2phk" path="res://scenes/transition_screen.tscn" id="2_i5srk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrl2a"]
 size = Vector2(48, 8)
@@ -14,7 +13,5 @@ metadata/to_map_name = ""
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_lrl2a")
-
-[node name="transition_screen" parent="." instance=ExtResource("2_i5srk")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
