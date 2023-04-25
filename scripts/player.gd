@@ -3,11 +3,12 @@ extends CharacterBody2D
 
 var direction: int
 var move_speed: int
+
 @export var _feet_offset: float
 
 
 func _ready():
-	_possible_set_last_direction()
+	_possible_set_previous_direction()
 	_possible_spawn_player()
 
 
@@ -55,7 +56,7 @@ func _get_offset_feet_position() -> Vector2:
 			_: return Vector2.ZERO
 
 
-func _possible_set_last_direction():
+func _possible_set_previous_direction():
 	if SceneSwitcher.has_param("direction"):
 		$player_input.direction = SceneSwitcher.get_param("direction")
 

@@ -30,6 +30,11 @@ window/size/resizable=false
 
 import/use_multiple_threads=false
 
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
+
 [input]
 
 crouch={

@@ -12,7 +12,7 @@ func _ready():
 
 
 func play_sound():
-	var index 
+	var index: int
 	while true:
 		index = _random.randi_range(0, _sounds.size() - 1)
 		if index != _last_index:

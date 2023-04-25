@@ -50,5 +50,13 @@ position = Vector2(480, 640)
 metadata/from_map_name = "honeywood_forest_cave"
 metadata/to_map_name = "honeywood_forest_path"
 
+[node name="map_switcher2" parent="." instance=ExtResource("4_4men4")]
+position = Vector2(336, 96)
+metadata/from_map_name = "honeywood_forest_cave"
+metadata/to_map_name = "honeywood_cave_1"
+
 [node name="honeywood_forest_path" type="Area2D" parent="."]
 position = Vector2(480, 624)
+
+[node name="honeywood_cave_1" type="Area2D" parent="."]
+position = Vector2(336, 120)

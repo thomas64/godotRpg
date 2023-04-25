@@ -1,10 +1,10 @@
 extends Node
 
 
-const _INPUT_DELAY_TIME: float = 0.5
+const _INPUT_DELAY_TIME: float = 0.2
 const _TURN_DELAY_TIME: float = 0.1
 
-var direction: int
+var direction: int = Direction.SOUTH
 var move_speed: int = Constant.MOVE_SPEED_0
 var velocity: Vector2 = Vector2.ZERO
 
