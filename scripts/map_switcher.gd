@@ -1,8 +1,6 @@
 extends Area2D
 
 
-const _FADE_TIME: float = 0.5
-
 @onready var _from_map_name: String = get_meta("from_map_name")
 @onready var _to_map_name: String = get_meta("to_map_name")
 
@@ -29,7 +27,7 @@ func _fade_and_switch_scene():
 
 	AudioManager.fade_all_but(new_tracks)
 	TransitionScreen.fade_to_black()
-	await get_tree().create_timer(_FADE_TIME).timeout
+	await get_tree().create_timer(Constant.FADE_TIME).timeout
 
 	TempStorage.store_params(_params_to_store())
 	get_tree().current_scene.queue_free()

@@ -1,5 +1,6 @@
 class_name Constant
 
+
 const MOVE_SPEED_0: int = 0
 const MOVE_SPEED_1: int = 48
 const MOVE_SPEED_2: int = 144 # 48 * 3
@@ -12,3 +13,6 @@ const FAST_FRAMES: float = 0.30
 const NO_FRAMES: float = 0
 
 const HALF_TILE_SIZE: int = 24
+
+const FADE_TIME: float = 0.5
+

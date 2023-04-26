@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://du5tl3g4n7qq1"]
+
+[ext_resource type="FontFile" uid="uid://1je1gl4qls2w" path="res://assets/fonts/barlow_regular_45.ttf" id="1_jmtbr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ccc1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjll5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26srr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sloya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2qug"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.752941, 0.25098, 0.25098, 1)
+Button/colors/font_pressed_color = Color(0.752941, 0.25098, 0.25098, 1)
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_jmtbr")
+Button/styles/disabled = SubResource("StyleBoxFlat_7ccc1")
+Button/styles/focus = SubResource("StyleBoxEmpty_pjll5")
+Button/styles/hover = SubResource("StyleBoxFlat_26srr")
+Button/styles/normal = SubResource("StyleBoxEmpty_sloya")
+Button/styles/pressed = SubResource("StyleBoxEmpty_k2qug")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_jmtbr")

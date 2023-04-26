@@ -1,0 +1,221 @@
+[gd_scene load_steps=10 format=3 uid="uid://cts78m4a1wb25"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_emnua"]
+[ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_g2rdc"]
+[ext_resource type="Texture2D" uid="uid://d3plcejgltgr4" path="res://assets/sprites/accot_b.png" id="3_4c5fj"]
+[ext_resource type="Theme" uid="uid://du5tl3g4n7qq1" path="res://assets/resources/menu_theme.tres" id="4_2a13l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s58bm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52g65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmj3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5nja"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kynm6"]
+
+[node name="main_menu_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emnua")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g2rdc")
+expand_mode = 1
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -698.0
+offset_top = 20.0
+offset_right = 657.0
+offset_bottom = 305.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4c5fj")
+expand_mode = 1
+
+[node name="main_menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -441.0
+offset_top = 200.0
+offset_right = -278.0
+offset_bottom = 386.0
+grow_horizontal = 0
+theme = ExtResource("4_2a13l")
+theme_override_constants/separation = -5
+metadata/_edit_group_ = true
+
+[node name="start_button" type="Button" parent="main_menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../settings_button")
+focus_next = NodePath("../settings_button")
+focus_previous = NodePath(".")
+text = "Start"
+
+[node name="settings_button" type="Button" parent="main_menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../start_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../credits_button")
+focus_next = NodePath("../credits_button")
+focus_previous = NodePath("../start_button")
+text = "Settings"
+
+[node name="credits_button" type="Button" parent="main_menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../settings_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../exit_button")
+focus_next = NodePath("../exit_button")
+focus_previous = NodePath("../settings_button")
+text = "Credits"
+
+[node name="exit_button" type="Button" parent="main_menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../credits_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../credits_button")
+text = "Exit"
+
+[node name="credits" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -462.5
+offset_right = 462.5
+offset_bottom = 4161.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_2a13l")
+text = "CREDITS
+Adan Chronicles
+Crystal of Time
+
+---
+
+GAME DESIGN
+Thomas M. Hesselink
+
+PROGRAMMING
+Thomas M. Hesselink
+
+MUSIC SELECTION
+Machteld Hesselink
+Thomas M. Hesselink
+
+TESTING
+Martijn Hazendonk
+Daniel Rosenkranz
+Machteld Hesselink
+Sieger Noppe
+Nathan van der Stoep
+
+---
+
+Graphics Copyright Notice
+
+\"On the verge\"
+by Studio VDS
+
+
+\"Titlelogo\"
+by F. Stellingwerf
+
+
+\"Painterly Spell Icons\"
+by J.W. Bjerk (eleazzaar)
+www.jwbjerk.com/art
+
+---
+
+Music Copyright Notice
+
+\"Approach\"
+\"Brave\"
+\"Cave\"
+\"Den\"
+\"Find\"
+\"Go out\"
+\"Journey\"
+\"Quiet town\"
+\"Search\"
+\"Seashore\"
+\"Shadow\"
+\"Spelunk\"
+\"Store\"
+\"Town\"
+\"Volcano\"
+\"Wake up\"
+\"Wayfarer\"
+\"Woods\"
+by Yusaku Kishigami
+www.presence-of-music.com
+
+
+Some of the sounds in this project were created
+by David McKee (ViRiX)
+www.soundcloud.com/virix
+
+---
+
+COPYRIGHT
+T64.nl
+"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="Timer" type="Timer" parent="credits"]
+wait_time = 0.01
+
+[node name="credits_quit_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s58bm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_52g65")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cmj3y")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w5nja")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kynm6")
+
+[connection signal="pressed" from="main_menu/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="main_menu/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="main_menu/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="main_menu/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="timeout" from="credits/Timer" to="." method="_on_credits_scroll"]
+[connection signal="pressed" from="credits_quit_button" to="." method="_on_credits_quit_button_pressed"]
