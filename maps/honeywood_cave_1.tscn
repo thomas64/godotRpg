@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmaulkyi766fu"]
+[gd_scene load_steps=8 format=3 uid="uid://bmaulkyi766fu"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/tilesets.tres" id="1_twi0q"]
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="2_ru3r4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqm61vxx6lf77" path="res://scenes/player.tscn" id="4_vvpwf"]
 [ext_resource type="PackedScene" uid="uid://b6x4g0dhnlc7s" path="res://scenes/map_switcher.tscn" id="4_vy0l4"]
 [ext_resource type="Texture2D" uid="uid://dbxh5vl622rpj" path="res://assets/lightmaps/light_object.png" id="6_w0416"]
+[ext_resource type="PackedScene" uid="uid://b7eywgrb2p3bk" path="res://scenes/fire_particle.tscn" id="7_3p5a0"]
 
 [node name="honeywood_cave_1" type="Node2D"]
 
@@ -29,7 +30,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(851985, 786440, 0, 1703947, 1114119, 14, 1703948, 1179655, 14, 1703949, 1245191, 14, 1703950, 1310727, 14, 1769483, 1114119, 15, 1769484, 1179655, 15, 1769485, 1245191, 15, 1769486, 1310727, 15, 1835020, 1572871, 30, 1835021, 1638407, 30)
+layer_2/tile_data = PackedInt32Array(851985, 786440, 8, 1703947, 1114119, 14, 1703948, 1179655, 14, 1703949, 1245191, 14, 1703950, 1310727, 14, 1769483, 1114119, 15, 1769484, 1179655, 15, 1769485, 1245191, 15, 1769486, 1310727, 15, 1835020, 1572871, 30, 1835021, 1638407, 30, 917521, 786440, 9, 851986, 851976, 8, 917522, 851976, 9)
 layer_3/name = "over_rocks"
 layer_3/enabled = true
 layer_3/modulate = Color(1, 1, 1, 1)
@@ -65,3 +66,8 @@ texture = ExtResource("6_w0416")
 position = Vector2(312, 672)
 scale = Vector2(1, 1.5)
 texture = ExtResource("6_w0416")
+
+[node name="fire_particle" parent="." instance=ExtResource("7_3p5a0")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(432, 340)

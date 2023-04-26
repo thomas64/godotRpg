@@ -59,7 +59,7 @@ metadata/step_sound = "grass"
 metadata/audio = ["bgm_journey", "bgs_birds", "bgs_creek"]
 
 [node name="player" parent="." instance=ExtResource("3_l56pr")]
-position = Vector2(600, 144)
+position = Vector2(600, 240)
 
 [node name="map_switcher" parent="." instance=ExtResource("4_1trq6")]
 position = Vector2(600, 0)

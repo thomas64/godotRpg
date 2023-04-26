@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7eywgrb2p3bk"]
+
+[ext_resource type="Texture2D" uid="uid://cwoi0ieq0re0y" path="res://assets/lightmaps/fire_particle.png" id="1_ayhn0"]
+
+[sub_resource type="CanvasItemMaterial" id="1"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="2"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 85.0781), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="3"]
+curve = SubResource("2")
+
+[sub_resource type="Gradient" id="Gradient_wdtkk"]
+offsets = PackedFloat32Array(0, 0.142857, 0.506494, 0.961039)
+colors = PackedColorArray(0, 0, 0.803922, 1, 0.858824, 0.180392, 0.0470588, 1, 0.788235, 0.294118, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fv41j"]
+gradient = SubResource("Gradient_wdtkk")
+
+[sub_resource type="Curve" id="4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="5"]
+curve = SubResource("4")
+
+[sub_resource type="ParticleProcessMaterial" id="6"]
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector3(0, -250, 0)
+angular_velocity_curve = SubResource("3")
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("5")
+color_ramp = SubResource("GradientTexture1D_fv41j")
+
+[node name="fire_particle" type="GPUParticles2D"]
+texture_filter = 4
+material = SubResource("1")
+amount = 32
+process_material = SubResource("6")
+texture = ExtResource("1_ayhn0")
+preprocess = 1.0
+fixed_fps = 60
