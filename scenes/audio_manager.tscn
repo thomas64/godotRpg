@@ -1,26 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1g6wwg7bragl"]
+[gd_scene load_steps=7 format=3 uid="uid://b1g6wwg7bragl"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_h1aaj"]
 [ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="2_4hxoo"]
 [ext_resource type="AudioStream" uid="uid://nmonxfqv1ljk" path="res://assets/audio/bgm/den.ogg" id="2_gtlwj"]
+[ext_resource type="AudioStream" uid="uid://cny0piejpt7mc" path="res://assets/audio/bgm/brave.mp3" id="2_okhaj"]
 [ext_resource type="AudioStream" uid="uid://bh0ejtmhs3j1m" path="res://assets/audio/bgs/birds.ogg" id="3_5e8sj"]
 [ext_resource type="AudioStream" uid="uid://cp8oy11ey3ghk" path="res://assets/audio/bgs/creek.ogg" id="4_uqv6a"]
 
 [node name="audio_manager" type="Node"]
 script = ExtResource("1_h1aaj")
 
+[node name="bgm_brave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_okhaj")
+volume_db = -9.0
+bus = &"bgm"
+
 [node name="bgm_den" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gtlwj")
 volume_db = -9.0
+bus = &"bgm"
 
 [node name="bgm_journey" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4hxoo")
 volume_db = -9.0
+bus = &"bgm"
 
 [node name="bgs_birds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5e8sj")
 volume_db = -9.0
+bus = &"bgs"
 
 [node name="bgs_creek" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_uqv6a")
 volume_db = -3.0
+bus = &"bgs"

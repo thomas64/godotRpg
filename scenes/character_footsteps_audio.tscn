@@ -1,31 +1,31 @@
-[gd_scene load_steps=27 format=3 uid="uid://k2otwbd75j3g"]
+[gd_scene load_steps=27 format=3 uid="uid://bni36wbgyg82p"]
 
 [ext_resource type="Script" path="res://scripts/character_footsteps_audio.gd" id="1_7353a"]
 [ext_resource type="Script" path="res://scripts/sound_pool.gd" id="2_ties4"]
-[ext_resource type="AudioStream" uid="uid://df1po5rm8pbgd" path="res://assets/audio/se/footsteps/oot_step_carpet1.ogg" id="3_1hhto"]
-[ext_resource type="AudioStream" uid="uid://3x7lipe4nytl" path="res://assets/audio/se/footsteps/oot_step_carpet2.ogg" id="4_gk5xi"]
-[ext_resource type="AudioStream" uid="uid://cbe7onvf066ex" path="res://assets/audio/se/footsteps/oot_step_carpet3.ogg" id="5_ninu6"]
-[ext_resource type="AudioStream" uid="uid://dr55y7nvm2nnn" path="res://assets/audio/se/footsteps/oot_step_carpet4.ogg" id="6_vgep5"]
-[ext_resource type="AudioStream" uid="uid://ddq0m7ucpnuw4" path="res://assets/audio/se/footsteps/oot_step_grass1.ogg" id="7_q7qa8"]
-[ext_resource type="AudioStream" uid="uid://cnl3mfgkyxeod" path="res://assets/audio/se/footsteps/oot_step_grass2.ogg" id="8_1xiln"]
-[ext_resource type="AudioStream" uid="uid://dgfxafnhunbr6" path="res://assets/audio/se/footsteps/oot_step_grass3.ogg" id="9_8823y"]
-[ext_resource type="AudioStream" uid="uid://pjaoq5oyhdw0" path="res://assets/audio/se/footsteps/oot_step_grass4.ogg" id="10_cdn5n"]
-[ext_resource type="AudioStream" uid="uid://bdaoas30exrl0" path="res://assets/audio/se/footsteps/oot_step_sand1.ogg" id="11_mibj0"]
-[ext_resource type="AudioStream" uid="uid://v7vqhq4xdupv" path="res://assets/audio/se/footsteps/oot_step_sand2.ogg" id="12_2ife5"]
-[ext_resource type="AudioStream" uid="uid://d36r3lskrveeq" path="res://assets/audio/se/footsteps/oot_step_sand3.ogg" id="13_475de"]
-[ext_resource type="AudioStream" uid="uid://d6tjphg2hr80" path="res://assets/audio/se/footsteps/oot_step_sand4.ogg" id="14_5y0nt"]
-[ext_resource type="AudioStream" uid="uid://gupt733a0um4" path="res://assets/audio/se/footsteps/oot_step_stone1.ogg" id="15_vrm5f"]
-[ext_resource type="AudioStream" uid="uid://b3508juf8b6km" path="res://assets/audio/se/footsteps/oot_step_stone2.ogg" id="16_uc0g6"]
-[ext_resource type="AudioStream" uid="uid://byj41os5mnqci" path="res://assets/audio/se/footsteps/oot_step_stone3.ogg" id="17_238vv"]
-[ext_resource type="AudioStream" uid="uid://caqstssdyqyb3" path="res://assets/audio/se/footsteps/oot_step_stone4.ogg" id="18_av4j8"]
-[ext_resource type="AudioStream" uid="uid://dbdxv0ajxrtj3" path="res://assets/audio/se/footsteps/oot_step_water1.wav" id="19_n6cb7"]
-[ext_resource type="AudioStream" uid="uid://cilojx0yigsu1" path="res://assets/audio/se/footsteps/oot_step_water2.wav" id="20_f87ga"]
-[ext_resource type="AudioStream" uid="uid://03n6u1ppj1wl" path="res://assets/audio/se/footsteps/oot_step_water3.wav" id="21_tvtrw"]
-[ext_resource type="AudioStream" uid="uid://chkxu6kx5nok6" path="res://assets/audio/se/footsteps/oot_step_water4.wav" id="22_f2cd4"]
-[ext_resource type="AudioStream" uid="uid://dirfrta3a6qjr" path="res://assets/audio/se/footsteps/oot_step_wood1.ogg" id="23_ybjio"]
-[ext_resource type="AudioStream" uid="uid://cb66lkkkcs8f4" path="res://assets/audio/se/footsteps/oot_step_wood2.ogg" id="24_dq7qk"]
-[ext_resource type="AudioStream" uid="uid://dlk4tnmlwvqsl" path="res://assets/audio/se/footsteps/oot_step_wood3.ogg" id="25_nh7g0"]
-[ext_resource type="AudioStream" uid="uid://cv18mw0i4fibv" path="res://assets/audio/se/footsteps/oot_step_wood4.ogg" id="26_nt2jy"]
+[ext_resource type="AudioStream" uid="uid://df1po5rm8pbgd" path="res://assets/audio/sfx/footsteps/oot_step_carpet1.ogg" id="3_4ipvt"]
+[ext_resource type="AudioStream" uid="uid://3x7lipe4nytl" path="res://assets/audio/sfx/footsteps/oot_step_carpet2.ogg" id="4_wm6ts"]
+[ext_resource type="AudioStream" uid="uid://cbe7onvf066ex" path="res://assets/audio/sfx/footsteps/oot_step_carpet3.ogg" id="5_i76c5"]
+[ext_resource type="AudioStream" uid="uid://dr55y7nvm2nnn" path="res://assets/audio/sfx/footsteps/oot_step_carpet4.ogg" id="6_p1quq"]
+[ext_resource type="AudioStream" uid="uid://ddq0m7ucpnuw4" path="res://assets/audio/sfx/footsteps/oot_step_grass1.ogg" id="7_8lh0v"]
+[ext_resource type="AudioStream" uid="uid://cnl3mfgkyxeod" path="res://assets/audio/sfx/footsteps/oot_step_grass2.ogg" id="8_w5t3w"]
+[ext_resource type="AudioStream" uid="uid://dgfxafnhunbr6" path="res://assets/audio/sfx/footsteps/oot_step_grass3.ogg" id="9_0oj2l"]
+[ext_resource type="AudioStream" uid="uid://pjaoq5oyhdw0" path="res://assets/audio/sfx/footsteps/oot_step_grass4.ogg" id="10_1xg6p"]
+[ext_resource type="AudioStream" uid="uid://bdaoas30exrl0" path="res://assets/audio/sfx/footsteps/oot_step_sand1.ogg" id="11_1xgpc"]
+[ext_resource type="AudioStream" uid="uid://v7vqhq4xdupv" path="res://assets/audio/sfx/footsteps/oot_step_sand2.ogg" id="12_t6net"]
+[ext_resource type="AudioStream" uid="uid://d36r3lskrveeq" path="res://assets/audio/sfx/footsteps/oot_step_sand3.ogg" id="13_ue5lu"]
+[ext_resource type="AudioStream" uid="uid://d6tjphg2hr80" path="res://assets/audio/sfx/footsteps/oot_step_sand4.ogg" id="14_cawtu"]
+[ext_resource type="AudioStream" uid="uid://gupt733a0um4" path="res://assets/audio/sfx/footsteps/oot_step_stone1.ogg" id="15_cr6ck"]
+[ext_resource type="AudioStream" uid="uid://b3508juf8b6km" path="res://assets/audio/sfx/footsteps/oot_step_stone2.ogg" id="16_duh4k"]
+[ext_resource type="AudioStream" uid="uid://byj41os5mnqci" path="res://assets/audio/sfx/footsteps/oot_step_stone3.ogg" id="17_5e5lw"]
+[ext_resource type="AudioStream" uid="uid://caqstssdyqyb3" path="res://assets/audio/sfx/footsteps/oot_step_stone4.ogg" id="18_ej8tb"]
+[ext_resource type="AudioStream" uid="uid://dbdxv0ajxrtj3" path="res://assets/audio/sfx/footsteps/oot_step_water1.wav" id="19_iltq8"]
+[ext_resource type="AudioStream" uid="uid://cilojx0yigsu1" path="res://assets/audio/sfx/footsteps/oot_step_water2.wav" id="20_ba0tx"]
+[ext_resource type="AudioStream" uid="uid://03n6u1ppj1wl" path="res://assets/audio/sfx/footsteps/oot_step_water3.wav" id="21_ma2qd"]
+[ext_resource type="AudioStream" uid="uid://chkxu6kx5nok6" path="res://assets/audio/sfx/footsteps/oot_step_water4.wav" id="22_h2lhl"]
+[ext_resource type="AudioStream" uid="uid://dirfrta3a6qjr" path="res://assets/audio/sfx/footsteps/oot_step_wood1.ogg" id="23_babgt"]
+[ext_resource type="AudioStream" uid="uid://cb66lkkkcs8f4" path="res://assets/audio/sfx/footsteps/oot_step_wood2.ogg" id="24_v5e7t"]
+[ext_resource type="AudioStream" uid="uid://dlk4tnmlwvqsl" path="res://assets/audio/sfx/footsteps/oot_step_wood3.ogg" id="25_ay73p"]
+[ext_resource type="AudioStream" uid="uid://cv18mw0i4fibv" path="res://assets/audio/sfx/footsteps/oot_step_wood4.ogg" id="26_q8n8m"]
 
 [node name="character_footsteps_audio" type="Node"]
 script = ExtResource("1_7353a")
@@ -34,88 +34,112 @@ script = ExtResource("1_7353a")
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_carpet"]
-stream = ExtResource("3_1hhto")
+stream = ExtResource("3_4ipvt")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_carpet"]
-stream = ExtResource("4_gk5xi")
+stream = ExtResource("4_wm6ts")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_carpet"]
-stream = ExtResource("5_ninu6")
+stream = ExtResource("5_i76c5")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_carpet"]
-stream = ExtResource("6_vgep5")
+stream = ExtResource("6_p1quq")
+bus = &"sfx"
 
 [node name="sound_pool_grass" type="Node" parent="."]
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_grass"]
-stream = ExtResource("7_q7qa8")
+stream = ExtResource("7_8lh0v")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_grass"]
-stream = ExtResource("8_1xiln")
+stream = ExtResource("8_w5t3w")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_grass"]
-stream = ExtResource("9_8823y")
+stream = ExtResource("9_0oj2l")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_grass"]
-stream = ExtResource("10_cdn5n")
+stream = ExtResource("10_1xg6p")
+bus = &"sfx"
 
 [node name="sound_pool_sand" type="Node" parent="."]
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_sand"]
-stream = ExtResource("11_mibj0")
+stream = ExtResource("11_1xgpc")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_sand"]
-stream = ExtResource("12_2ife5")
+stream = ExtResource("12_t6net")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_sand"]
-stream = ExtResource("13_475de")
+stream = ExtResource("13_ue5lu")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_sand"]
-stream = ExtResource("14_5y0nt")
+stream = ExtResource("14_cawtu")
+bus = &"sfx"
 
 [node name="sound_pool_stone" type="Node" parent="."]
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_stone"]
-stream = ExtResource("15_vrm5f")
+stream = ExtResource("15_cr6ck")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_stone"]
-stream = ExtResource("16_uc0g6")
+stream = ExtResource("16_duh4k")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_stone"]
-stream = ExtResource("17_238vv")
+stream = ExtResource("17_5e5lw")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_stone"]
-stream = ExtResource("18_av4j8")
+stream = ExtResource("18_ej8tb")
+bus = &"sfx"
 
 [node name="sound_pool_water" type="Node" parent="."]
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_water"]
-stream = ExtResource("19_n6cb7")
+stream = ExtResource("19_iltq8")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_water"]
-stream = ExtResource("20_f87ga")
+stream = ExtResource("20_ba0tx")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_water"]
-stream = ExtResource("21_tvtrw")
+stream = ExtResource("21_ma2qd")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_water"]
-stream = ExtResource("22_f2cd4")
+stream = ExtResource("22_h2lhl")
+bus = &"sfx"
 
 [node name="sound_pool_wood" type="Node" parent="."]
 script = ExtResource("2_ties4")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_wood"]
-stream = ExtResource("23_ybjio")
+stream = ExtResource("23_babgt")
+bus = &"sfx"
 
 [node name="audio2" type="AudioStreamPlayer" parent="sound_pool_wood"]
-stream = ExtResource("24_dq7qk")
+stream = ExtResource("24_v5e7t")
+bus = &"sfx"
 
 [node name="audio3" type="AudioStreamPlayer" parent="sound_pool_wood"]
-stream = ExtResource("25_nh7g0")
+stream = ExtResource("25_ay73p")
+bus = &"sfx"
 
 [node name="audio4" type="AudioStreamPlayer" parent="sound_pool_wood"]
-stream = ExtResource("26_nt2jy")
+stream = ExtResource("26_q8n8m")
+bus = &"sfx"

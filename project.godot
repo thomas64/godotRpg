@@ -15,6 +15,10 @@ run/main_scene="res://maps/honeywood_forest_path.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://assets/resources/default_bus_layout.tres"
+
 [autoload]
 
 AudioManager="*res://scenes/audio_manager.tscn"
