@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://q6jateijr0m0"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_1uutn"]
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="2_7jeit"]
@@ -59,7 +59,7 @@ metadata/step_sound = "grass"
 metadata/audio = ["bgm_journey", "bgs_birds", "bgs_creek"]
 
 [node name="player" parent="." instance=ExtResource("3_l56pr")]
-position = Vector2(600, 240)
+position = Vector2(600, 128)
 
 [node name="map_switcher" parent="." instance=ExtResource("4_1trq6")]
 position = Vector2(600, 0)

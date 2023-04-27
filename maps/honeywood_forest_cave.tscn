@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://yir2o53hxig7"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_cgoai"]
 [ext_resource type="PackedScene" uid="uid://vq1fmvc5dosn" path="res://scenes/lightmap_camera.tscn" id="2_8iq2s"]

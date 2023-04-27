@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwhjap05otwm" path="res://scenes/character_sprite_animation.tscn" id="2_1qnhu"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_w2j1q"]
 [ext_resource type="Script" path="res://scripts/player_input.gd" id="2_wkjb4"]
-[ext_resource type="PackedScene" uid="uid://k2otwbd75j3g" path="res://scenes/character_footsteps_audio.tscn" id="5_b6dcy"]
+[ext_resource type="PackedScene" uid="uid://bni36wbgyg82p" path="res://scenes/character_footsteps_audio.tscn" id="5_b6dcy"]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sgwqt")
