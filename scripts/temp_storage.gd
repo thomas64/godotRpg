@@ -4,9 +4,8 @@ extends Node
 var _params: Dictionary = {}
 
 
-func change_scene(next_scene: String, params: Dictionary):
+func store_params(params: Dictionary):
 	_params = params
-	get_tree().change_scene_to_file(next_scene)
 
 
 func has_param(param_name) -> bool:

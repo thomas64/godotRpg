@@ -22,8 +22,8 @@ buses/default_bus_layout="res://assets/resources/default_bus_layout.tres"
 [autoload]
 
 AudioManager="*res://scenes/audio_manager.tscn"
-SceneSwitcher="*res://scripts/scene_switcher.gd"
 TransitionScreen="*res://scenes/transition_screen.tscn"
+TempStorage="*res://scripts/temp_storage.gd"
 
 [display]
 

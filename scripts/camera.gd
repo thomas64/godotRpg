@@ -13,6 +13,9 @@ func _ready():
 	var map_size_in_px: Vector2i = map_rect.size * tile_size
 	limit_right = map_size_in_px.x
 	limit_bottom = map_size_in_px.y
+	
+	await get_tree().create_timer(0.1).timeout
+	
 	limit_smoothed = true
 	position_smoothing_enabled = true
 

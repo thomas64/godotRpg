@@ -2,7 +2,7 @@ extends TileMap
 
 
 func _ready():
-	AudioManager.play(get_meta("audio"))
+	AudioManager.play_multiple(get_meta("audio"))
 
 
 func get_underground_for(character_position: Vector2) -> String:

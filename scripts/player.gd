@@ -57,12 +57,12 @@ func _get_offset_feet_position() -> Vector2:
 
 
 func _possible_set_previous_direction():
-	if SceneSwitcher.has_param("direction"):
-		$player_input.direction = SceneSwitcher.get_param("direction")
+	if TempStorage.has_param("direction"):
+		$player_input.direction = TempStorage.get_param("direction")
 
 
 func _possible_spawn_player():
-	if SceneSwitcher.has_param("spawn_point"):
-		position = get_parent().get_node(SceneSwitcher.get_param("spawn_point")).position
+	if TempStorage.has_param("spawn_point"):
+		position = get_parent().get_node(TempStorage.get_param("spawn_point")).position
 		$Camera2D.reset_smoothing()
 
