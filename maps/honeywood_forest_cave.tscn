@@ -16,6 +16,7 @@
 texture = ExtResource("3_a68er")
 
 [node name="sunlight" parent="CanvasLayer" instance=ExtResource("2_8iq2s")]
+energy = 3.0
 texture = ExtResource("4_jille")
 
 [node name="TileMap" type="TileMap" parent="."]

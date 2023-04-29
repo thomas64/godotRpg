@@ -1,6 +1,10 @@
 extends Node
 
 
+func play_sfx(track_name: String):
+	get_node(track_name).play()
+
+
 func play_one(track_name: String):
 	play_multiple([track_name])
 
@@ -14,7 +18,7 @@ func play_multiple(track_names: Array):
 
 func fade_all_but(track_names: Array):
 	for track in get_children():
-		if (track.name not in track_names):
+		if track.name not in track_names:
 			_fade(track, create_tween())
 
 
