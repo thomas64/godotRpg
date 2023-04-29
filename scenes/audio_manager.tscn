@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1g6wwg7bragl"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_h1aaj"]
+[ext_resource type="Script" path="res://scripts/autoload/audio_manager.gd" id="1_h1aaj"]
 [ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="2_4hxoo"]
 [ext_resource type="AudioStream" uid="uid://nmonxfqv1ljk" path="res://assets/audio/bgm/den.ogg" id="2_gtlwj"]
 [ext_resource type="AudioStream" uid="uid://cny0piejpt7mc" path="res://assets/audio/bgm/brave.mp3" id="2_okhaj"]

@@ -10,13 +10,15 @@ func on_open():
 
 
 func _input(event):
-	if $resolution/resolutions.is_disabled():
+	if $resolutions.is_disabled():
+
 		if $debug_mode.has_focus() \
 		and (event.is_action_pressed("ui_up") or event.is_action_pressed("ui_focus_prev")):
-			$resolution/resolutions.grab_focus()
+			$resolutions.grab_focus()
+
 		elif $fullscreen_button.has_focus() \
 		and (event.is_action_pressed("ui_down") or event.is_action_pressed("ui_focus_next")):
-			$resolution/resolutions.grab_focus()
+			$resolutions.grab_focus()
 
 
 func _on_vsync_button_pressed():
@@ -34,12 +36,12 @@ func _on_fullscreen_button_pressed():
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		$fullscreen_button.text = "Fullscreen: On"
-		$resolution/resolutions.set_disabled(true)
+		$resolutions.set_disabled(true)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		$fullscreen_button.text = "Fullscreen: Off"
-		$resolution/resolutions.set_disabled(false)
-		_on_resolutions_item_selected($resolution/resolutions.get_selected())
+		$resolutions.set_disabled(false)
+		_on_resolutions_item_selected($resolutions.get_selected())
 	
 	_config.set_value("Settings", "fullscreen", DisplayServer.window_get_mode())
 
@@ -75,7 +77,7 @@ func _on_back_button_pressed():
 	_config.save("res://settings.cfg")
 	hide()
 	$%main_menu.show()
-	$%settings_button.grab_focus()
+	$%main_menu/settings_button.grab_focus()
 
 
 func _load_settings():
@@ -88,16 +90,16 @@ func _load_settings():
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		$fullscreen_button.text = "Fullscreen: Off"
-		$resolution/resolutions.set_disabled(false)
+		$resolutions.set_disabled(false)
 	else:
 		$fullscreen_button.text = "Fullscreen: On"
-		$resolution/resolutions.set_disabled(true)
+		$resolutions.set_disabled(true)
 
 	var resolution = _config.get_value("Settings", "resolution")
 	if resolution == Vector2i(1920, 1080):
-		$resolution/resolutions.select(2)
+		$resolutions.select(2)
 	elif resolution == Vector2i(1600, 900):
-		$resolution/resolutions.select(1)
+		$resolutions.select(1)
 	elif resolution == Vector2i(1280, 720):
-		$resolution/resolutions.select(0)
+		$resolutions.select(0)
 

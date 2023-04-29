@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0lg85t84c08"]
+
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_81pgo"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="2_voren"]
+
+[node name="main_menu" type="VBoxContainer"]
+offset_right = 163.0
+offset_bottom = 250.0
+theme = ExtResource("1_81pgo")
+theme_override_constants/separation = -5
+script = ExtResource("2_voren")
+metadata/_edit_group_ = true
+
+[node name="start_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../settings_button")
+focus_next = NodePath("../settings_button")
+focus_previous = NodePath(".")
+text = "Start"
+
+[node name="settings_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../start_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../audio_button")
+focus_next = NodePath("../audio_button")
+focus_previous = NodePath("../start_button")
+text = "Settings"
+
+[node name="audio_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../settings_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../credits_button")
+focus_next = NodePath("../credits_button")
+focus_previous = NodePath("../settings_button")
+text = "Audio"
+
+[node name="credits_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../audio_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../exit_button")
+focus_next = NodePath("../exit_button")
+focus_previous = NodePath("../audio_button")
+text = "Credits"
+
+[node name="exit_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../credits_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../credits_button")
+text = "Exit"
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="audio_button" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

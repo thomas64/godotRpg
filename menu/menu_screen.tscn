@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds5h77e6x610v"]
+
+[ext_resource type="Script" path="res://menu/menu_screen.gd" id="1_u5i37"]
+[ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_gcrt3"]
+[ext_resource type="Texture2D" uid="uid://d3plcejgltgr4" path="res://assets/sprites/accot_b.png" id="3_qdbcb"]
+[ext_resource type="PackedScene" uid="uid://dv0lg85t84c08" path="res://menu/main_menu.tscn" id="4_km77a"]
+[ext_resource type="PackedScene" uid="uid://cn4f4spvllnfj" path="res://menu/settings_menu.tscn" id="5_4okib"]
+[ext_resource type="PackedScene" uid="uid://t0b1t0m3g1js" path="res://menu/audio_menu.tscn" id="6_e24v4"]
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="7_ilhcr"]
+
+[node name="menu_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u5i37")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gcrt3")
+expand_mode = 1
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -698.0
+offset_top = 20.0
+offset_right = 657.0
+offset_bottom = 305.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qdbcb")
+expand_mode = 1
+
+[node name="main_menu" parent="." instance=ExtResource("4_km77a")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -441.0
+offset_top = 200.0
+offset_right = -278.0
+offset_bottom = 450.0
+grow_horizontal = 0
+
+[node name="settings_menu" parent="." instance=ExtResource("5_4okib")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -530.0
+offset_top = 200.0
+offset_right = -190.0
+offset_bottom = 560.0
+grow_horizontal = 0
+
+[node name="audio_menu" parent="." instance=ExtResource("6_e24v4")]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -510.0
+offset_top = 200.0
+offset_right = -210.0
+offset_bottom = 599.0
+grow_horizontal = 0
+
+[node name="credits_scroll" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -462.5
+offset_right = 462.5
+offset_bottom = 4161.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_ilhcr")
+text = "CREDITS
+Adan Chronicles
+Crystal of Time
+
+- - -
+
+GAME DESIGN
+Thomas M. Hesselink
+
+PROGRAMMING
+Thomas M. Hesselink
+
+MUSIC SELECTION
+Machteld Hesselink
+Thomas M. Hesselink
+
+TESTING
+Martijn Hazendonk
+Daniel Rosenkranz
+Machteld Hesselink
+Sieger Noppe
+Nathan van der Stoep
+
+- - -
+
+Graphics Copyright Notice
+
+\"On the verge\"
+by Studio VDS
+
+
+\"Titlelogo\"
+by F. Stellingwerf
+
+
+\"Painterly Spell Icons\"
+by J.W. Bjerk (eleazzaar)
+www.jwbjerk.com/art
+
+- - -
+
+Music Copyright Notice
+
+\"Approach\"
+\"Brave\"
+\"Cave\"
+\"Den\"
+\"Find\"
+\"Go out\"
+\"Journey\"
+\"Quiet town\"
+\"Search\"
+\"Seashore\"
+\"Shadow\"
+\"Spelunk\"
+\"Store\"
+\"Town\"
+\"Volcano\"
+\"Wake up\"
+\"Wayfarer\"
+\"Woods\"
+by Yusaku Kishigami
+www.presence-of-music.com
+
+
+Some of the sounds in this project were created
+by David McKee (ViRiX)
+www.soundcloud.com/virix
+
+- - -
+
+COPYRIGHT
+T64.nl
+"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="Timer" type="Timer" parent="credits_scroll"]
+wait_time = 0.01
+
+[connection signal="timeout" from="credits_scroll/Timer" to="main_menu" method="_on_credits_scroll"]

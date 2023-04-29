@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvjodmsw2phk"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://scripts/transition_screen.gd" id="1_pgxox"]
+[ext_resource type="Script" path="res://scripts/autoload/transition_screen.gd" id="1_pgxox"]
 
 [sub_resource type="Animation" id="Animation_fkfov"]
 length = 0.001

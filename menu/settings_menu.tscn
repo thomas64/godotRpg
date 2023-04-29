@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn4f4spvllnfj"]
+
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_8nhy3"]
+[ext_resource type="Script" path="res://menu/settings_menu.gd" id="2_5b7ek"]
+
+[node name="settings_menu" type="VBoxContainer"]
+offset_right = 340.0
+offset_bottom = 360.0
+theme = ExtResource("1_8nhy3")
+theme_override_constants/separation = -5
+script = ExtResource("2_5b7ek")
+metadata/_edit_group_ = true
+
+[node name="vsync_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../fullscreen_button")
+focus_next = NodePath("../fullscreen_button")
+focus_previous = NodePath(".")
+text = "V-Sync: Off"
+
+[node name="fullscreen_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../vsync_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../resolutions")
+focus_next = NodePath("../resolutions")
+focus_previous = NodePath("../vsync_button")
+text = "Fullscreen: Off"
+
+[node name="window" type="Label" parent="."]
+layout_mode = 2
+text = "Window:"
+horizontal_alignment = 1
+
+[node name="resolutions" type="OptionButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../fullscreen_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../debug_mode")
+focus_next = NodePath("../debug_mode")
+focus_previous = NodePath("../fullscreen_button")
+alignment = 1
+item_count = 3
+selected = 2
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+
+[node name="debug_mode" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../resolutions")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../view_controls")
+focus_next = NodePath("../view_controls")
+focus_previous = NodePath("../resolutions")
+text = "Debug mode: Off"
+
+[node name="view_controls" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../debug_mode")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../back_button")
+focus_next = NodePath("../back_button")
+focus_previous = NodePath("../debug_mode")
+text = "View controls"
+
+[node name="back_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../view_controls")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../view_controls")
+text = "Back"
+
+[connection signal="pressed" from="vsync_button" to="." method="_on_vsync_button_pressed"]
+[connection signal="pressed" from="fullscreen_button" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="item_focused" from="resolutions" to="." method="_on_resolutions_item_focused"]
+[connection signal="item_selected" from="resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="pressed" from="debug_mode" to="." method="_on_debug_mode_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

@@ -22,8 +22,8 @@ func _on_audio_button_pressed():
 
 func _on_credits_button_pressed():
 	hide()
-	$%credits.show()
-	$%credits/Timer.start()
+	$%credits_scroll.show()
+	$%credits_scroll/Timer.start()
 
 
 func _on_exit_button_pressed():
@@ -31,14 +31,14 @@ func _on_exit_button_pressed():
 
 
 func _on_credits_scroll():
-	$%credits.position.y -= 1
+	$%credits_scroll.position.y -= 1
 
 
 func close_credits():
 	accept_event()
-	$%credits.hide()
-	$%credits/Timer.stop()
-	$%credits.position.y = get_viewport().size.y
+	$%credits_scroll.hide()
+	$%credits_scroll/Timer.stop()
+	$%credits_scroll.position.y = get_viewport().size.y
 	show()
 	$credits_button.grab_focus()
 
