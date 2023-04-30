@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://c77a12jkjexeg"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_cgoai"]
-[ext_resource type="PackedScene" uid="uid://vq1fmvc5dosn" path="res://scenes/lightmap_camera.tscn" id="2_8iq2s"]
+[ext_resource type="PackedScene" path="res://scenes/lightmap_camera.tscn" id="2_8iq2s"]
 [ext_resource type="Script" path="res://scripts/world/tile_map.gd" id="2_fsiut"]
 [ext_resource type="Texture2D" uid="uid://ceosdtdclivux" path="res://assets/lightmaps/forest.png" id="3_a68er"]
-[ext_resource type="PackedScene" uid="uid://bqm61vxx6lf77" path="res://scenes/player.tscn" id="3_egbqd"]
-[ext_resource type="PackedScene" uid="uid://b6x4g0dhnlc7s" path="res://scenes/map_switcher.tscn" id="4_4men4"]
+[ext_resource type="PackedScene" uid="uid://bst1k8sw7qcrv" path="res://scenes/player.tscn" id="3_egbqd"]
+[ext_resource type="PackedScene" path="res://scenes/map_switcher.tscn" id="4_4men4"]
 [ext_resource type="Texture2D" uid="uid://bqirqvum2mjv5" path="res://assets/lightmaps/sunlight.png" id="4_jille"]
 
 [node name="honeywood_forest_cave" type="Node2D"]
@@ -20,6 +20,7 @@ energy = 3.0
 texture = ExtResource("4_jille")
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 y_sort_enabled = true
 tile_set = ExtResource("1_cgoai")
 cell_quadrant_size = 24

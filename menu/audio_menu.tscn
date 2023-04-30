@@ -1,65 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://t0b1t0m3g1js"]
+[gd_scene load_steps=3 format=3 uid="uid://t0b1t0m3g1js"]
 
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_8hecp"]
+[ext_resource type="Script" path="res://menu/audio_menu.gd" id="2_1wb5w"]
 
 [node name="audio_menu" type="VBoxContainer"]
-offset_right = 300.0
-offset_bottom = 399.0
+offset_right = 249.0
+offset_bottom = 495.0
 theme = ExtResource("1_8hecp")
 theme_override_constants/separation = -5
+script = ExtResource("2_1wb5w")
 metadata/_edit_group_ = true
 
-[node name="bgm_slider" type="VBoxContainer" parent="."]
+[node name="title" type="Label" parent="."]
 layout_mode = 2
-
-[node name="title" type="Label" parent="bgm_slider"]
-layout_mode = 2
-text = "Music volume"
+text = "Volumes"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="bgm_slider"]
+[node name="blank" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 
-[node name="current_value" type="Label" parent="bgm_slider"]
+[node name="bgm_title" type="Label" parent="."]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+
+[node name="bgm_slider" type="HSlider" parent="."]
+layout_mode = 2
+focus_previous = NodePath(".")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="bgm_value" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "0 %"
+text = "50%"
 horizontal_alignment = 1
 
-[node name="bgs_slider" type="VBoxContainer" parent="."]
+[node name="bgs_title" type="Label" parent="."]
 layout_mode = 2
-
-[node name="title" type="Label" parent="bgs_slider"]
-layout_mode = 2
-text = "Background vol"
+text = "Environment"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="bgs_slider"]
+[node name="bgs_slider" type="HSlider" parent="."]
 layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.5
 
-[node name="current_value" type="Label" parent="bgs_slider"]
+[node name="bgs_value" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "0 %"
+text = "50%"
 horizontal_alignment = 1
 
-[node name="sfx_slider" type="VBoxContainer" parent="."]
+[node name="sfx_title" type="Label" parent="."]
 layout_mode = 2
-
-[node name="title" type="Label" parent="sfx_slider"]
-layout_mode = 2
-text = "SFX volume"
+text = "Sounds"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="sfx_slider"]
+[node name="sfx_slider" type="HSlider" parent="."]
 layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.5
 
-[node name="current_value" type="Label" parent="sfx_slider"]
+[node name="sfx_value" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "0 %"
+text = "50%"
 horizontal_alignment = 1
+
+[node name="blank2" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 
 [node name="back_button" type="Button" parent="."]
 layout_mode = 2
+focus_next = NodePath(".")
 text = "Back"
+
+[connection signal="value_changed" from="bgm_slider" to="." method="_on_bgm_value_changed"]
+[connection signal="value_changed" from="bgs_slider" to="." method="_on_bgs_value_changed"]
+[connection signal="value_changed" from="sfx_slider" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

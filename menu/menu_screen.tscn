@@ -67,15 +67,16 @@ offset_bottom = 560.0
 grow_horizontal = 0
 
 [node name="audio_menu" parent="." instance=ExtResource("6_e24v4")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -510.0
+offset_left = -484.0
 offset_top = 200.0
-offset_right = -210.0
-offset_bottom = 599.0
+offset_right = -235.0
+offset_bottom = 649.0
 grow_horizontal = 0
 
 [node name="credits_scroll" type="Label" parent="."]
