@@ -4,6 +4,10 @@ extends Control
 var _config = ConfigFile.new()
 
 
+func _ready():
+	$resolutions.get_popup().window_input.connect(_input)
+
+
 func on_open():
 	_load_settings()
 	$back_button.grab_focus()
@@ -11,7 +15,10 @@ func on_open():
 
 func _input(event):
 	if visible and event.is_action_pressed("ui_cancel"):
-		_on_back_button_pressed()
+		if $resolutions.get_popup().visible:
+			$resolutions.get_popup().visible = false
+		else:
+			_on_back_button_pressed()
 	
 	if $resolutions.is_disabled():
 		if ($debug_mode.has_focus() and event.is_action_pressed("ui_up")) \
@@ -32,8 +39,8 @@ func _on_vsync_button_pressed():
 
 
 func _on_fullscreen_button_pressed():
+	AudioManager.play_sfx("menu_confirm")
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		AudioManager.play_sfx("menu_confirm")
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		$fullscreen_button.text = "Fullscreen: On"
 		$resolutions.set_disabled(true)

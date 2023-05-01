@@ -92,7 +92,8 @@ func _set_velocity(delta):
 			move_speed = Constant.MOVE_SPEED_0
 		else:
 			var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-			velocity = input_direction * move_speed
+			var angle: float = deg_to_rad(round(rad_to_deg(input_direction.normalized().angle()) / 45.0) * 45.0)
+			velocity = Vector2(cos(angle), sin(angle)) * move_speed
 	else:
 		velocity = Vector2.ZERO
 
