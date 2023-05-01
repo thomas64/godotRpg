@@ -10,18 +10,17 @@ func on_open():
 
 
 func _input(event):
+	if visible and event.is_action_pressed("ui_cancel"):
+		_on_back_button_pressed()
+	
 	if $resolutions.is_disabled():
-
-		if $debug_mode.has_focus() \
-		and (event.is_action_pressed("ui_up") or event.is_action_pressed("ui_focus_prev")):
-			$resolutions.grab_focus()
-
-		elif $fullscreen_button.has_focus() \
-		and (event.is_action_pressed("ui_down") or event.is_action_pressed("ui_focus_next")):
+		if ($debug_mode.has_focus() and event.is_action_pressed("ui_up")) \
+		or ($fullscreen_button.has_focus() and event.is_action_pressed("ui_down")):
 			$resolutions.grab_focus()
 
 
 func _on_vsync_button_pressed():
+	AudioManager.play_sfx("menu_confirm")
 	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		$vsync_button.text = "V-Sync: On"
@@ -34,6 +33,7 @@ func _on_vsync_button_pressed():
 
 func _on_fullscreen_button_pressed():
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		AudioManager.play_sfx("menu_confirm")
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		$fullscreen_button.text = "Fullscreen: On"
 		$resolutions.set_disabled(true)
@@ -46,12 +46,18 @@ func _on_fullscreen_button_pressed():
 	_config.set_value("Settings", "fullscreen", DisplayServer.window_get_mode())
 
 
+func _on_resolutions_toggled(_button_pressed):
+	if Input.is_action_pressed("ui_cancel"):
+		AudioManager.play_sfx("menu_back")
+	if Input.is_action_pressed("ui_accept"):
+		AudioManager.play_sfx("menu_confirm")
+
+
 func _on_resolutions_item_focused(_index):
 	AudioManager.play_sfx("menu_cursor")
 
 
 func _on_resolutions_item_selected(index):
-	AudioManager.play_sfx("menu_confirm")
 	var new_resolution: Vector2i
 	if index == 2:
 		new_resolution = Vector2i(1920, 1080)
@@ -67,6 +73,7 @@ func _on_resolutions_item_selected(index):
 
 
 func _on_debug_mode_pressed():
+	AudioManager.play_sfx("menu_confirm")
 	if $debug_mode.text == "Debug mode: Off":
 		$debug_mode.text = "Debug mode: On"
 	else:
@@ -74,6 +81,7 @@ func _on_debug_mode_pressed():
 
 
 func _on_back_button_pressed():
+	AudioManager.play_sfx("menu_back")
 	_config.save("res://settings.cfg")
 	hide()
 	$%main_menu.show()

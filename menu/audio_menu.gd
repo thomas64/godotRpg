@@ -9,7 +9,26 @@ func on_open():
 	$back_button.grab_focus()
 
 
-func _process(delta):
+func _input(event):
+	if visible and event.is_action_pressed("ui_cancel"):
+		_on_back_button_pressed()
+
+	if $bgm_slider.has_focus() or $bgs_slider.has_focus() or $sfx_slider.has_focus():
+		if (event.is_action_pressed("ui_left") and (
+			($bgm_slider.has_focus() and $bgm_slider.value == 0) or
+			($bgs_slider.has_focus() and $bgs_slider.value == 0) or
+			($sfx_slider.has_focus() and $sfx_slider.value == 0)
+			)
+		) \
+		or (event.is_action_pressed("ui_right") and (
+			($bgm_slider.has_focus() and $bgm_slider.value == 1) or
+			($bgs_slider.has_focus() and $bgs_slider.value == 1) or
+			($sfx_slider.has_focus() and $sfx_slider.value == 1)
+			)
+		): AudioManager.play_sfx("menu_error")
+
+
+func _process(_delta):
 	var red = Color(0.75, 0.25, 0.25, 1)
 	var black = Color(0, 0, 0, 1)
 
@@ -30,24 +49,28 @@ func _process(delta):
 
 
 func _on_bgm_value_changed(value):
+	AudioManager.play_sfx("menu_cursor")
 	_set_bgm_value(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), linear_to_db(value))
 	_config.set_value("Audio", "bgm_volume", value)
 
 
 func _on_bgs_value_changed(value):
+	AudioManager.play_sfx("menu_cursor")
 	_set_bgs_value(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgs"), linear_to_db(value))
 	_config.set_value("Audio", "bgs_volume", value)
 
 
 func _on_sfx_value_changed(value):
+	AudioManager.play_sfx("menu_cursor")
 	_set_sfx_value(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sfx"), linear_to_db(value))
 	_config.set_value("Audio", "sfx_volume", value)
 
 
 func _on_back_button_pressed():
+	AudioManager.play_sfx("menu_back")
 	_config.save("res://settings.cfg")
 	hide()
 	$%main_menu.show()

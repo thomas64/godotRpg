@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://blcrj5i46mvuw"]
 
 [ext_resource type="Script" path="res://scripts/autoload/audio_manager.gd" id="1_h1aaj"]
 [ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="2_4hxoo"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bh0ejtmhs3j1m" path="res://assets/audio/bgs/birds.ogg" id="3_5e8sj"]
 [ext_resource type="AudioStream" uid="uid://cp8oy11ey3ghk" path="res://assets/audio/bgs/creek.ogg" id="4_uqv6a"]
 [ext_resource type="AudioStream" uid="uid://b2xg8pq6j0h1j" path="res://assets/audio/sfx/botw_menu_cursor.wav" id="7_yk6sa"]
+[ext_resource type="AudioStream" uid="uid://bn7hd2d1wk305" path="res://assets/audio/sfx/botw_menu_back.wav" id="8_54ehf"]
 [ext_resource type="AudioStream" uid="uid://c6k6ay0ea2ncf" path="res://assets/audio/sfx/botw_menu_error.wav" id="8_g5jsh"]
 [ext_resource type="AudioStream" uid="uid://cu01ogwfpgfwk" path="res://assets/audio/sfx/botw_menu_confirm.wav" id="9_dkak0"]
 
@@ -40,6 +41,10 @@ bus = &"bgs"
 
 [node name="menu_cursor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_yk6sa")
+bus = &"sfx"
+
+[node name="menu_back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_54ehf")
 bus = &"sfx"
 
 [node name="menu_confirm" type="AudioStreamPlayer" parent="."]
