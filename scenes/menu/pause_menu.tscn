@@ -1,27 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://csp5cmkf2t8lq"]
+[gd_scene load_steps=3 format=3 uid="uid://1l51bipmoyuq"]
 
 [ext_resource type="Script" path="res://scenes/menu/pause_menu.gd" id="1_b7vac"]
+[ext_resource type="Theme" uid="uid://cidbmk561xyog" path="res://assets/resources/white_menu_theme.tres" id="1_gby68"]
 
-[node name="pause_menu" type="Control"]
-process_mode = 2
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="pause_menu" type="VBoxContainer"]
+offset_right = 163.0
+offset_bottom = 250.0
+theme = ExtResource("1_gby68")
+theme_override_constants/separation = -5
 script = ExtResource("1_b7vac")
+metadata/_edit_group_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="continue_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../load_button")
+focus_next = NodePath("../load_button")
+focus_previous = NodePath(".")
+text = "Continue"
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.752941)
+[node name="load_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../continue_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../settings_button")
+focus_next = NodePath("../settings_button")
+focus_previous = NodePath("../continue_button")
+text = "Load Game"
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[node name="settings_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../load_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../audio_button")
+focus_next = NodePath("../audio_button")
+focus_previous = NodePath("../load_button")
+text = "Settings"
+
+[node name="audio_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../settings_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../main_button")
+focus_next = NodePath("../main_button")
+focus_previous = NodePath("../settings_button")
+text = "Audio"
+
+[node name="main_button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../audio_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../audio_button")
+text = "Main Menu"
+
+[connection signal="pressed" from="continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="audio_button" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="main_button" to="." method="_on_main_button_pressed"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://cugjnia6727um"]
+
+[ext_resource type="Script" path="res://scenes/menu/pause_screen.gd" id="1_h85p1"]
+[ext_resource type="Texture2D" uid="uid://bxqndhwg2lk6l" path="res://assets/sprites/accot_w.png" id="2_vrb4r"]
+[ext_resource type="PackedScene" uid="uid://1l51bipmoyuq" path="res://scenes/menu/pause_menu.tscn" id="3_77qln"]
+[ext_resource type="PackedScene" uid="uid://ddjxb88itxr" path="res://scenes/menu/settings_menu.tscn" id="4_yf762"]
+[ext_resource type="PackedScene" uid="uid://ceb4jxjlp6voy" path="res://scenes/menu/audio_menu.tscn" id="5_h4pq5"]
+[ext_resource type="Theme" uid="uid://cidbmk561xyog" path="res://assets/resources/white_menu_theme.tres" id="5_w5xcn"]
+
+[node name="pause_screen" type="CanvasLayer"]
+process_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h85p1")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="logo" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -698.0
+offset_top = 20.0
+offset_right = 657.0
+offset_bottom = 305.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vrb4r")
+
+[node name="pause_menu" parent="Control" instance=ExtResource("3_77qln")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -470.0
+offset_top = 200.0
+offset_right = -251.0
+offset_bottom = 450.0
+grow_horizontal = 0
+
+[node name="settings_menu" parent="Control" instance=ExtResource("4_yf762")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -530.0
+offset_top = 200.0
+offset_right = -190.0
+offset_bottom = 560.0
+grow_horizontal = 0
+theme = ExtResource("5_w5xcn")
+
+[node name="audio_menu" parent="Control" instance=ExtResource("5_h4pq5")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -484.0
+offset_top = 200.0
+offset_right = -235.0
+offset_bottom = 649.0
+grow_horizontal = 0
+theme = ExtResource("5_w5xcn")
+
+[connection signal="visibility_changed" from="." to="Control" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Control/settings_menu" to="Control" method="_on_settings_menu_hidden"]
+[connection signal="hidden" from="Control/audio_menu" to="Control" method="_on_audio_menu_hidden"]

@@ -15,3 +15,7 @@ func has_param(param_name) -> bool:
 func get_param(param_name) -> Variant:
 	return _params[param_name]
 
+
+func clear_params():
+	_params = {}
+

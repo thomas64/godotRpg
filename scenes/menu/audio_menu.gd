@@ -11,41 +11,15 @@ func on_open():
 
 func _input(event):
 	if visible and event.is_action_pressed("ui_cancel"):
+		accept_event()
 		_on_back_button_pressed()
+		return
 
-	if $bgm_slider.has_focus() or $bgs_slider.has_focus() or $sfx_slider.has_focus():
-		if (event.is_action_pressed("ui_left") and (
-			($bgm_slider.has_focus() and $bgm_slider.value == 0) or
-			($bgs_slider.has_focus() and $bgs_slider.value == 0) or
-			($sfx_slider.has_focus() and $sfx_slider.value == 0)
-			)
-		) \
-		or (event.is_action_pressed("ui_right") and (
-			($bgm_slider.has_focus() and $bgm_slider.value == 1) or
-			($bgs_slider.has_focus() and $bgs_slider.value == 1) or
-			($sfx_slider.has_focus() and $sfx_slider.value == 1)
-			)
-		): AudioManager.play_sfx("menu_error")
+	_handle_error_sound_sliders(event)
 
 
 func _process(_delta):
-	var red = Color(0.75, 0.25, 0.25, 1)
-	var black = Color(0, 0, 0, 1)
-
-	if $bgm_slider.has_focus():
-		$bgm_title.add_theme_color_override("font_color", red)
-	else:
-		$bgm_title.add_theme_color_override("font_color", black)
-
-	if $bgs_slider.has_focus():
-		$bgs_title.add_theme_color_override("font_color", red)
-	else:
-		$bgs_title.add_theme_color_override("font_color", black)
-
-	if $sfx_slider.has_focus():
-		$sfx_title.add_theme_color_override("font_color", red)
-	else:
-		$sfx_title.add_theme_color_override("font_color", black)
+	_update_font_colors_when_slider_has_focus()
 
 
 func _on_bgm_value_changed(value):
@@ -73,8 +47,6 @@ func _on_back_button_pressed():
 	AudioManager.play_sfx("menu_back")
 	_config.save("res://settings.cfg")
 	hide()
-	$%main_menu.show()
-	$%main_menu/audio_button.grab_focus()
 
 
 func _load_settings():
@@ -110,4 +82,40 @@ func _get_percentage_string(value: float) -> String:
 
 func _get_percentage(value: float, max_value: float) -> float:
 	return value / max_value
+
+
+func _handle_error_sound_sliders(event):
+	if $bgm_slider.has_focus() or $bgs_slider.has_focus() or $sfx_slider.has_focus():
+		if (event.is_action_pressed("ui_left") and (
+			($bgm_slider.has_focus() and $bgm_slider.value == 0) or
+			($bgs_slider.has_focus() and $bgs_slider.value == 0) or
+			($sfx_slider.has_focus() and $sfx_slider.value == 0)
+			)
+		) \
+		or (event.is_action_pressed("ui_right") and (
+			($bgm_slider.has_focus() and $bgm_slider.value == 1) or
+			($bgs_slider.has_focus() and $bgs_slider.value == 1) or
+			($sfx_slider.has_focus() and $sfx_slider.value == 1)
+			)
+		): AudioManager.play_sfx("menu_error")
+
+
+func _update_font_colors_when_slider_has_focus():
+	var default: Color = get_theme_color("font_color", "Button")
+	var focus: Color = get_theme_color("font_focus_color", "Button")
+
+	if $bgm_slider.has_focus():
+		$bgm_title.add_theme_color_override("font_color", focus)
+	else:
+		$bgm_title.add_theme_color_override("font_color", default)
+
+	if $bgs_slider.has_focus():
+		$bgs_title.add_theme_color_override("font_color", focus)
+	else:
+		$bgs_title.add_theme_color_override("font_color", default)
+
+	if $sfx_slider.has_focus():
+		$sfx_title.add_theme_color_override("font_color", focus)
+	else:
+		$sfx_title.add_theme_color_override("font_color", default)
 

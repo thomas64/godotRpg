@@ -21,7 +21,7 @@ func _stop_player():
 
 func _fade_and_switch_scene():
 	var world = get_tree().root.get_node("world")
-	var instanced_scene = world.get_instance_of(_to_map_name)
+	var instanced_scene = world.create_instance_of(_to_map_name)
 	var new_tracks: Array = instanced_scene.get_node("TileMap").get_meta("audio")
 
 	AudioManager.fade_all_but(new_tracks)

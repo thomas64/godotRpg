@@ -2,17 +2,17 @@ extends Node2D
 
 
 func _ready():
-	var first_map = get_instance_of("honeywood_forest_path")
+	var first_map = create_instance_of("honeywood_forest_path")
 	_add_map_as_first(first_map)
 
 
 func _input(event):
 	if event.is_action_pressed("pause"):
 		get_tree().paused = true
-		$pause_menu.show()
+		$pause_screen.show()
 
 
-func get_instance_of(map_name: String):
+func create_instance_of(map_name: String) -> Variant:
 	var path: String = "res://scenes/world/" + map_name + ".tscn"
 	var packed_scene := ResourceLoader.load(path) as PackedScene
 	return packed_scene.instantiate()

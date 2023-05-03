@@ -15,6 +15,7 @@ func on_open():
 
 func _input(event):
 	if visible and event.is_action_pressed("ui_cancel"):
+		accept_event()
 		if $resolutions.get_popup().visible:
 			$resolutions.get_popup().visible = false
 		else:
@@ -91,8 +92,6 @@ func _on_back_button_pressed():
 	AudioManager.play_sfx("menu_back")
 	_config.save("res://settings.cfg")
 	hide()
-	$%main_menu.show()
-	$%main_menu/settings_button.grab_focus()
 
 
 func _load_settings():

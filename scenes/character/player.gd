@@ -10,6 +10,7 @@ var move_speed: int
 func _ready():
 	_possible_set_previous_direction()
 	_possible_spawn_player()
+	TempStorage.clear_params()
 
 
 func stop_animation():

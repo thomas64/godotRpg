@@ -1,13 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dt3ljimfmw3ua"]
 
 [ext_resource type="Script" path="res://scenes/other/fps_counter.gd" id="1_0yt6d"]
 
-[node name="fps_counter" type="Control"]
-layout_mode = 3
+[node name="fps_counter" type="CanvasLayer"]
+process_mode = 3
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="."]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 167.0

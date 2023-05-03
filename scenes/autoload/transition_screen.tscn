@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cj7fg2lj666xj"]
 
 [ext_resource type="Script" path="res://scenes/autoload/transition_screen.gd" id="1_pgxox"]
 
@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="transition_screen" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_pgxox")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -71,3 +72,6 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_y1gnm")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

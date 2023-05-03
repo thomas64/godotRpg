@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_gcrt3"]
 [ext_resource type="Texture2D" uid="uid://d3plcejgltgr4" path="res://assets/sprites/accot_b.png" id="3_qdbcb"]
 [ext_resource type="PackedScene" uid="uid://bg2egt0e15teh" path="res://scenes/menu/main_menu.tscn" id="4_km77a"]
-[ext_resource type="PackedScene" path="res://scenes/menu/settings_menu.tscn" id="5_4okib"]
-[ext_resource type="PackedScene" path="res://scenes/menu/audio_menu.tscn" id="6_e24v4"]
-[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="7_ilhcr"]
+[ext_resource type="PackedScene" uid="uid://ddjxb88itxr" path="res://scenes/menu/settings_menu.tscn" id="5_4okib"]
+[ext_resource type="PackedScene" uid="uid://ceb4jxjlp6voy" path="res://scenes/menu/audio_menu.tscn" id="6_e24v4"]
 [ext_resource type="Script" path="res://scenes/menu/credits_scroll.gd" id="8_0qos3"]
-[ext_resource type="PackedScene" path="res://scenes/other/fps_counter.tscn" id="9_o228w"]
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="8_1xi27"]
+[ext_resource type="PackedScene" uid="uid://dt3ljimfmw3ua" path="res://scenes/other/fps_counter.tscn" id="9_o228w"]
 
 [node name="menu_screen" type="Control"]
 layout_mode = 3
@@ -41,10 +41,8 @@ offset_bottom = 305.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_qdbcb")
-expand_mode = 1
 
 [node name="fps_counter" parent="." instance=ExtResource("9_o228w")]
-anchors_preset = 0
 
 [node name="main_menu" parent="." instance=ExtResource("4_km77a")]
 unique_name_in_owner = true
@@ -95,7 +93,7 @@ offset_left = -462.5
 offset_right = 462.5
 offset_bottom = 3534.0
 grow_horizontal = 2
-theme = ExtResource("7_ilhcr")
+theme = ExtResource("8_1xi27")
 text = "CREDITS
 Adan Chronicles
 Crystal of Time
@@ -222,4 +220,6 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="credits_scroll"]
 wait_time = 0.01
 
+[connection signal="hidden" from="settings_menu" to="." method="_on_settings_menu_hidden"]
+[connection signal="hidden" from="audio_menu" to="." method="_on_audio_menu_hidden"]
 [connection signal="timeout" from="credits_scroll/Timer" to="credits_scroll" method="_on_credits_scroll"]
