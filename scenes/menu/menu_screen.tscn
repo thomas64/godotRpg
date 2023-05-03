@@ -88,16 +88,13 @@ grow_horizontal = 0
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -462.5
 offset_right = 462.5
-offset_bottom = 4161.0
+offset_bottom = 3534.0
 grow_horizontal = 2
-grow_vertical = 0
 theme = ExtResource("7_ilhcr")
 text = "CREDITS
 Adan Chronicles
@@ -142,24 +139,13 @@ www.jwbjerk.com/art
 
 Music Copyright Notice
 
-\"Approach\"
-\"Brave\"
-\"Cave\"
-\"Den\"
-\"Find\"
-\"Go out\"
-\"Journey\"
-\"Quiet town\"
-\"Search\"
-\"Seashore\"
-\"Shadow\"
-\"Spelunk\"
-\"Store\"
-\"Town\"
-\"Volcano\"
-\"Wake up\"
-\"Wayfarer\"
-\"Woods\"
+
+
+
+
+
+
+
 by Yusaku Kishigami
 www.presence-of-music.com
 
@@ -174,8 +160,64 @@ COPYRIGHT
 T64.nl
 "
 horizontal_alignment = 1
-visible_characters_behavior = 1
 script = ExtResource("8_0qos3")
+
+[node name="music_left" type="Label" parent="credits_scroll"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 693.0
+offset_right = 208.0
+offset_bottom = 1035.0
+grow_vertical = 2
+text = "\"Approach\"
+\"Brave\"
+\"Cave\"
+\"Den\"
+\"Find\"
+\"Go out\""
+horizontal_alignment = 1
+
+[node name="music_center" type="Label" parent="credits_scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = 693.0
+offset_right = 114.5
+offset_bottom = 1035.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "\"Journey\"
+\"Quiet town\"
+\"Search\"
+\"Seashore\"
+\"Shadow\"
+\"Spelunk\""
+
+[node name="music_right" type="Label" parent="credits_scroll"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = 693.0
+offset_bottom = 1035.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "\"Store\"
+\"Town\"
+\"Volcano\"
+\"Wake up\"
+\"Wayfarer\"
+\"Woods\""
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="credits_scroll"]
 wait_time = 0.01
