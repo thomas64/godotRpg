@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://csp5cmkf2t8lq"]
+
+[ext_resource type="Script" path="res://scenes/menu/pause_menu.gd" id="1_b7vac"]
+
+[node name="pause_menu" type="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b7vac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

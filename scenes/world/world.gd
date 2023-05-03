@@ -6,6 +6,12 @@ func _ready():
 	_add_map_as_first(first_map)
 
 
+func _input(event):
+	if event.is_action_pressed("pause"):
+		get_tree().paused = true
+		$pause_menu.show()
+
+
 func get_instance_of(map_name: String):
 	var path: String = "res://scenes/world/" + map_name + ".tscn"
 	var packed_scene := ResourceLoader.load(path) as PackedScene
