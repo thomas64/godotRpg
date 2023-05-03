@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3]
 
-[ext_resource type="Script" path="res://scripts/world/character_footsteps_audio.gd" id="1_7353a"]
-[ext_resource type="Script" path="res://scripts/world/sound_pool.gd" id="2_ties4"]
+[ext_resource type="Script" path="res://scenes/character/character_footsteps_audio.gd" id="1_7353a"]
+[ext_resource type="Script" path="res://scenes/character/sound_pool.gd" id="2_j7y5a"]
 [ext_resource type="AudioStream" uid="uid://df1po5rm8pbgd" path="res://assets/audio/sfx/footsteps/oot_step_carpet1.ogg" id="3_4ipvt"]
 [ext_resource type="AudioStream" uid="uid://3x7lipe4nytl" path="res://assets/audio/sfx/footsteps/oot_step_carpet2.ogg" id="4_wm6ts"]
 [ext_resource type="AudioStream" uid="uid://cbe7onvf066ex" path="res://assets/audio/sfx/footsteps/oot_step_carpet3.ogg" id="5_i76c5"]
@@ -31,7 +31,7 @@
 script = ExtResource("1_7353a")
 
 [node name="sound_pool_carpet" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_carpet"]
 stream = ExtResource("3_4ipvt")
@@ -50,7 +50,7 @@ stream = ExtResource("6_p1quq")
 bus = &"sfx"
 
 [node name="sound_pool_grass" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_grass"]
 stream = ExtResource("7_8lh0v")
@@ -69,7 +69,7 @@ stream = ExtResource("10_1xg6p")
 bus = &"sfx"
 
 [node name="sound_pool_sand" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_sand"]
 stream = ExtResource("11_1xgpc")
@@ -88,7 +88,7 @@ stream = ExtResource("14_cawtu")
 bus = &"sfx"
 
 [node name="sound_pool_stone" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_stone"]
 stream = ExtResource("15_cr6ck")
@@ -107,7 +107,7 @@ stream = ExtResource("18_ej8tb")
 bus = &"sfx"
 
 [node name="sound_pool_water" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_water"]
 stream = ExtResource("19_iltq8")
@@ -126,7 +126,7 @@ stream = ExtResource("22_h2lhl")
 bus = &"sfx"
 
 [node name="sound_pool_wood" type="Node" parent="."]
-script = ExtResource("2_ties4")
+script = ExtResource("2_j7y5a")
 
 [node name="audio1" type="AudioStreamPlayer" parent="sound_pool_wood"]
 stream = ExtResource("23_babgt")

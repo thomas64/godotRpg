@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://t0b1t0m3g1js"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_8hecp"]
-[ext_resource type="Script" path="res://menu/audio_menu.gd" id="2_1wb5w"]
+[ext_resource type="Script" path="res://scenes/menu/audio_menu.gd" id="2_1wb5w"]
 
 [node name="audio_menu" type="VBoxContainer"]
 offset_right = 249.0

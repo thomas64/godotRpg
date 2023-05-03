@@ -20,9 +20,8 @@ func _stop_player():
 
 
 func _fade_and_switch_scene():
-	var path: String = "res://maps/" + _to_map_name + ".tscn"
-	var packed_scene := ResourceLoader.load(path) as PackedScene
-	var instanced_scene := packed_scene.instantiate()
+	var world = get_tree().root.get_node("world")
+	var instanced_scene = world.get_instance_of(_to_map_name)
 	var new_tracks: Array = instanced_scene.get_node("TileMap").get_meta("audio")
 
 	AudioManager.fade_all_but(new_tracks)
@@ -30,9 +29,7 @@ func _fade_and_switch_scene():
 	await get_tree().create_timer(Constant.FADE_TIME).timeout
 
 	TempStorage.store_params(_params_to_store())
-	get_tree().current_scene.queue_free()
-	get_tree().root.add_child(instanced_scene)
-	get_tree().current_scene = instanced_scene
+	world.change_map(instanced_scene)
 
 	TransitionScreen.fade_to_normal()
 

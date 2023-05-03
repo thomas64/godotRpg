@@ -2,6 +2,7 @@ extends Control
 
 
 func on_open():
+	position.y = Constant.SCREEN_HEIGHT
 	$Timer.start()
 
 
@@ -20,7 +21,6 @@ func _close_credits():
 	AudioManager.play_sfx("menu_back")
 	hide()
 	$Timer.stop()
-	position.y = get_viewport().size.y
 	$%main_menu.show()
 	$%main_menu/credits_button.grab_focus()
 

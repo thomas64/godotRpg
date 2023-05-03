@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bst1k8sw7qcrv"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://scripts/world/player.gd" id="1_sgwqt"]
-[ext_resource type="PackedScene" path="res://scenes/character_sprite_animation.tscn" id="2_1qnhu"]
-[ext_resource type="Script" path="res://scripts/world/camera.gd" id="2_w2j1q"]
-[ext_resource type="Script" path="res://scripts/world/player_input.gd" id="2_wkjb4"]
-[ext_resource type="PackedScene" path="res://scenes/character_footsteps_audio.tscn" id="5_b6dcy"]
+[ext_resource type="Script" path="res://scenes/character/player.gd" id="1_sgwqt"]
+[ext_resource type="PackedScene" path="res://scenes/character/character_sprite_animation.tscn" id="2_1qnhu"]
+[ext_resource type="Script" path="res://scenes/map/camera.gd" id="2_w2j1q"]
+[ext_resource type="Script" path="res://scenes/character/player_input.gd" id="2_wkjb4"]
+[ext_resource type="PackedScene" path="res://scenes/character/character_footsteps_audio.tscn" id="5_b6dcy"]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sgwqt")

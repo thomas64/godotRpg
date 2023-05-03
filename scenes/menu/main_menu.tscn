@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv0lg85t84c08"]
+[gd_scene load_steps=3 format=3 uid="uid://bg2egt0e15teh"]
 
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_81pgo"]
-[ext_resource type="Script" path="res://menu/main_menu.gd" id="2_voren"]
+[ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="2_voren"]
 
 [node name="main_menu" type="VBoxContainer"]
 offset_right = 163.0

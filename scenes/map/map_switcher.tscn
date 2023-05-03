@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://scripts/world/map_switcher.gd" id="1_x01gb"]
+[ext_resource type="Script" path="res://scenes/map/map_switcher.gd" id="1_x01gb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrl2a"]
 size = Vector2(48, 8)

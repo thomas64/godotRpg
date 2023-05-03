@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dovgq7kn2hgq3"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_twi0q"]
-[ext_resource type="Script" path="res://scripts/world/tile_map.gd" id="2_ru3r4"]
+[ext_resource type="Script" path="res://scenes/map/tile_map.gd" id="2_30rto"]
 [ext_resource type="Texture2D" uid="uid://cpaaphhg3tn5y" path="res://assets/lightmaps/light_player.png" id="4_asa1m"]
-[ext_resource type="PackedScene" uid="uid://bst1k8sw7qcrv" path="res://scenes/player.tscn" id="4_vvpwf"]
-[ext_resource type="PackedScene" path="res://scenes/map_switcher.tscn" id="4_vy0l4"]
+[ext_resource type="PackedScene" path="res://scenes/character/player.tscn" id="4_vvpwf"]
+[ext_resource type="PackedScene" path="res://scenes/map/map_switcher.tscn" id="4_vy0l4"]
 [ext_resource type="Texture2D" uid="uid://dbxh5vl622rpj" path="res://assets/lightmaps/light_object.png" id="6_w0416"]
-[ext_resource type="PackedScene" uid="uid://b7eywgrb2p3bk" path="res://scenes/fire_particle.tscn" id="7_3p5a0"]
+[ext_resource type="PackedScene" uid="uid://b7eywgrb2p3bk" path="res://scenes/map/fire_particle.tscn" id="7_3p5a0"]
 
 [node name="honeywood_cave_1" type="Node2D"]
 
@@ -39,7 +39,7 @@ layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(1179670, 7, 12, 1179671, 65543, 12, 1179672, 131079, 12, 1179673, 196615, 12, 1245206, 7, 13, 1245207, 65543, 13, 1245208, 131079, 13, 1245209, 196615, 13, 1310738, 7, 12, 1310739, 65543, 12, 1376274, 7, 13, 1376275, 65543, 13, 1310730, 262151, 12, 1376266, 262151, 13, 1310731, 327687, 12, 1376267, 327687, 13, 1703948, 262151, 12, 1769484, 262151, 13, 1703949, 327687, 12, 1769485, 327687, 13, 1703952, 7, 12, 1769488, 7, 13, 1703953, 65543, 12, 1769489, 65543, 13, 1835022, 131079, 12, 1900558, 131079, 13, 1835023, 196615, 12, 1900559, 196615, 13, 1310740, 131079, 12, 1376276, 131079, 13, 1310741, 196615, 12, 1376277, 196615, 13, 1179674, 131079, 12, 1245210, 131079, 13, 1179675, 196615, 12, 1245211, 196615, 13, 1048604, 7, 12, 1114140, 7, 13, 1048605, 65543, 12, 1114141, 65543, 13)
-script = ExtResource("2_ru3r4")
+script = ExtResource("2_30rto")
 metadata/step_sound = "stone"
 metadata/audio = ["bgm_den"]
 

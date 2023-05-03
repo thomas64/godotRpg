@@ -4,7 +4,7 @@ extends Control
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
 	var run_after_fade: Callable = func():
-		get_tree().change_scene_to_file("res://maps/honeywood_forest_path.tscn")
+		get_tree().change_scene_to_file("res://scenes/world/world.tscn")
 		TransitionScreen.fade_to_normal()
 
 	TransitionScreen.fade_to_black()

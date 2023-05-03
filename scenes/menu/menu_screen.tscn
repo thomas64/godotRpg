@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ds5h77e6x610v"]
+[gd_scene load_steps=10 format=3 uid="uid://b485gf5b2m4b5"]
 
-[ext_resource type="Script" path="res://menu/menu_screen.gd" id="1_u5i37"]
+[ext_resource type="Script" path="res://scenes/menu/menu_screen.gd" id="1_u5i37"]
 [ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_gcrt3"]
 [ext_resource type="Texture2D" uid="uid://d3plcejgltgr4" path="res://assets/sprites/accot_b.png" id="3_qdbcb"]
-[ext_resource type="PackedScene" uid="uid://dv0lg85t84c08" path="res://menu/main_menu.tscn" id="4_km77a"]
-[ext_resource type="PackedScene" uid="uid://cn4f4spvllnfj" path="res://menu/settings_menu.tscn" id="5_4okib"]
-[ext_resource type="PackedScene" uid="uid://t0b1t0m3g1js" path="res://menu/audio_menu.tscn" id="6_e24v4"]
+[ext_resource type="PackedScene" uid="uid://bg2egt0e15teh" path="res://scenes/menu/main_menu.tscn" id="4_km77a"]
+[ext_resource type="PackedScene" path="res://scenes/menu/settings_menu.tscn" id="5_4okib"]
+[ext_resource type="PackedScene" path="res://scenes/menu/audio_menu.tscn" id="6_e24v4"]
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="7_ilhcr"]
-[ext_resource type="Script" path="res://menu/credits_scroll.gd" id="8_0qos3"]
+[ext_resource type="Script" path="res://scenes/menu/credits_scroll.gd" id="8_0qos3"]
+[ext_resource type="PackedScene" path="res://scenes/other/fps_counter.tscn" id="9_o228w"]
 
 [node name="menu_screen" type="Control"]
 layout_mode = 3
@@ -41,6 +42,9 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_qdbcb")
 expand_mode = 1
+
+[node name="fps_counter" parent="." instance=ExtResource("9_o228w")]
+anchors_preset = 0
 
 [node name="main_menu" parent="." instance=ExtResource("4_km77a")]
 unique_name_in_owner = true

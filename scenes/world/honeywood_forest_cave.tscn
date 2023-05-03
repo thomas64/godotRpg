@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c77a12jkjexeg"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_cgoai"]
-[ext_resource type="PackedScene" path="res://scenes/lightmap_camera.tscn" id="2_8iq2s"]
-[ext_resource type="Script" path="res://scripts/world/tile_map.gd" id="2_fsiut"]
+[ext_resource type="PackedScene" path="res://scenes/map/lightmap_camera.tscn" id="2_8iq2s"]
+[ext_resource type="Script" path="res://scenes/map/tile_map.gd" id="2_fsiut"]
 [ext_resource type="Texture2D" uid="uid://ceosdtdclivux" path="res://assets/lightmaps/forest.png" id="3_a68er"]
-[ext_resource type="PackedScene" uid="uid://bst1k8sw7qcrv" path="res://scenes/player.tscn" id="3_egbqd"]
-[ext_resource type="PackedScene" path="res://scenes/map_switcher.tscn" id="4_4men4"]
+[ext_resource type="PackedScene" path="res://scenes/character/player.tscn" id="3_egbqd"]
+[ext_resource type="PackedScene" path="res://scenes/map/map_switcher.tscn" id="4_4men4"]
 [ext_resource type="Texture2D" uid="uid://bqirqvum2mjv5" path="res://assets/lightmaps/sunlight.png" id="4_jille"]
 
 [node name="honeywood_forest_cave" type="Node2D"]
