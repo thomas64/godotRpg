@@ -35,8 +35,18 @@ func _on_audio_button_pressed():
 
 
 func _on_main_button_pressed():
+	AudioManager.play_sfx("menu_confirm")
+	$ConfirmationDialog.popup_centered()
+	$ConfirmationDialog.get_cancel_button().grab_focus()
+
+
+func _on_confirmation_dialog_confirmed():
 	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
 	SceneChanger.with_fade_to("res://scenes/menu/menu_screen.tscn")
 	get_tree().paused = false
+
+
+func _on_confirmation_dialog_canceled():
+	AudioManager.play_sfx("menu_back")
 

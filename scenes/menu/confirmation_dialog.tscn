@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://deegbjn341via"]
+
+[ext_resource type="Theme" uid="uid://j280lh46cebh" path="res://assets/resources/dialog_theme.tres" id="1_jrhqj"]
+[ext_resource type="Script" path="res://scenes/menu/confirmation_dialog.gd" id="2_m3t8x"]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+transparent_bg = true
+initial_position = 1
+size = Vector2i(560, 220)
+visible = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+theme = ExtResource("1_jrhqj")
+ok_button_text = "Yes"
+dialog_text = "Any unsaved progress will be lost.
+Are you sure you want to exit?"
+cancel_button_text = "No"
+script = ExtResource("2_m3t8x")

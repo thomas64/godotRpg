@@ -1,0 +1,15 @@
+extends ConfirmationDialog
+
+
+func _input(event):
+	if event.is_action_pressed("ui_focus_prev") or event.is_action_pressed("ui_focus_next"):
+		get_viewport().set_input_as_handled()
+		return
+
+	if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+		if (event.is_action_pressed("ui_left") and get_ok_button().has_focus()) \
+		or (event.is_action_pressed("ui_right") and get_cancel_button().has_focus()):
+			AudioManager.play_sfx("menu_error")
+		else:
+			AudioManager.play_sfx("menu_cursor")
+

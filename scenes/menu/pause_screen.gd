@@ -10,13 +10,26 @@ func _input(event):
 	if event is InputEventMouse:
 		accept_event()
 		return
-	
+
 	if event.is_action_pressed("ui_focus_prev") or event.is_action_pressed("ui_focus_next"):
 		accept_event()
 		return
 
-	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+	_handle_up_down_sound(event)
 
+
+func _on_settings_menu_hidden():
+	$pause_menu.show()
+	$pause_menu/settings_button.grab_focus()
+
+
+func _on_audio_menu_hidden():
+	$pause_menu.show()
+	$pause_menu/audio_button.grab_focus()
+
+
+func _handle_up_down_sound(event):
+	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
 		if (event.is_action_pressed("ui_up") and (
 			$pause_menu/continue_button.has_focus() or
 			$settings_menu/vsync_button.has_focus() or
@@ -32,14 +45,4 @@ func _input(event):
 			AudioManager.play_sfx("menu_error")
 		else:
 			AudioManager.play_sfx("menu_cursor")
-
-
-func _on_settings_menu_hidden():
-	$pause_menu.show()
-	$pause_menu/settings_button.grab_focus()
-
-
-func _on_audio_menu_hidden():
-	$pause_menu.show()
-	$pause_menu/audio_button.grab_focus()
 

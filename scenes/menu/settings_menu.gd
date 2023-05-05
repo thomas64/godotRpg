@@ -17,7 +17,7 @@ func _input(event):
 	if visible and event.is_action_pressed("ui_cancel"):
 		accept_event()
 		if $resolutions.get_popup().visible:
-			$resolutions.get_popup().visible = false
+			$resolutions.get_popup().hide()
 		else:
 			_on_back_button_pressed()
 	

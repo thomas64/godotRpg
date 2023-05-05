@@ -71,4 +71,4 @@ texture = ExtResource("6_w0416")
 [node name="fire_particle" parent="." instance=ExtResource("7_3p5a0")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(480, 340)
+position = Vector2(480, 338)

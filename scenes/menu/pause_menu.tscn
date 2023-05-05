@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://1l51bipmoyuq"]
+[gd_scene load_steps=4 format=3 uid="uid://1l51bipmoyuq"]
 
 [ext_resource type="Script" path="res://scenes/menu/pause_menu.gd" id="1_b7vac"]
 [ext_resource type="Theme" uid="uid://cidbmk561xyog" path="res://assets/resources/white_menu_theme.tres" id="1_gby68"]
+[ext_resource type="PackedScene" uid="uid://deegbjn341via" path="res://scenes/menu/confirmation_dialog.tscn" id="3_qthal"]
 
 [node name="pause_menu" type="VBoxContainer"]
 offset_right = 163.0
@@ -61,8 +62,13 @@ focus_next = NodePath(".")
 focus_previous = NodePath("../audio_button")
 text = "Main Menu"
 
+[node name="ConfirmationDialog" parent="." instance=ExtResource("3_qthal")]
+visible = false
+
 [connection signal="pressed" from="continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="audio_button" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="main_button" to="." method="_on_main_button_pressed"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
