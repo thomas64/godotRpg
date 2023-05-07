@@ -36,13 +36,13 @@ func update(delta):
 
 
 func _process_key_input():
-	_press_up = Input.is_action_pressed("ui_up")
-	_press_down = Input.is_action_pressed("ui_down")
-	_press_left = Input.is_action_pressed("ui_left")
-	_press_right = Input.is_action_pressed("ui_right")
+	_press_up = Input.is_action_pressed("player_north")
+	_press_down = Input.is_action_pressed("player_south")
+	_press_left = Input.is_action_pressed("player_west")
+	_press_right = Input.is_action_pressed("player_east")
 	
-	_press_ctrl = Input.is_action_pressed("crouch")
-	_press_shift = Input.is_action_pressed("run")
+	_press_ctrl = Input.is_action_pressed("player_crouch")
+	_press_shift = Input.is_action_pressed("player_run")
 
 
 func _set_move_speed():
@@ -91,7 +91,7 @@ func _set_velocity(delta):
 			_turn_delay -= delta
 			move_speed = Constant.MOVE_SPEED_0
 		else:
-			var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			var input_direction: Vector2 = Input.get_vector("player_west", "player_east", "player_north", "player_south")
 			var angle: float = deg_to_rad(round(rad_to_deg(input_direction.normalized().angle()) / 45.0) * 45.0)
 			velocity = Vector2(cos(angle), sin(angle)) * move_speed
 	else:
