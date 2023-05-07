@@ -1,6 +1,13 @@
 extends ConfirmationDialog
 
 
+@export_multiline var centered_text: String = ""
+
+
+func _ready():
+	$Label.text = centered_text
+
+
 func _input(event):
 	if event.is_action_pressed("ui_focus_prev") or event.is_action_pressed("ui_focus_next"):
 		get_viewport().set_input_as_handled()

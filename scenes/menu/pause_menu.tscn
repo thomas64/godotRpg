@@ -64,6 +64,8 @@ text = "Main Menu"
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource("3_qthal")]
 visible = false
+centered_text = "Any unsaved progress will be lost.
+Are you sure you want to exit?"
 
 [connection signal="pressed" from="continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
