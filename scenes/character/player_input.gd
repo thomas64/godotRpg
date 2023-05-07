@@ -52,7 +52,7 @@ func _set_move_speed():
 		move_speed = Constant.MOVE_SPEED_0
 	elif _press_left and _press_right:
 		move_speed = Constant.MOVE_SPEED_0
-	elif _press_ctrl and _press_shift:
+	elif _press_ctrl and _press_shift and Globals.is_in_debug_mode:
 		move_speed = Constant.MOVE_SPEED_4
 	elif _press_shift:
 		move_speed = Constant.MOVE_SPEED_3

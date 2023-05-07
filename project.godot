@@ -21,6 +21,7 @@ buses/default_bus_layout="res://assets/resources/default_bus_layout.tres"
 
 [autoload]
 
+Globals="*res://scenes/autoload/globals.gd"
 SettingsLoader="*res://scenes/autoload/settings_loader.gd"
 TempStorage="*res://scenes/autoload/temp_storage.gd"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"

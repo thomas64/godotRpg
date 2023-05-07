@@ -82,10 +82,14 @@ func _on_resolutions_item_selected(index):
 
 func _on_debug_mode_pressed():
 	AudioManager.play_sfx("menu_confirm")
-	if $debug_mode.text == "Debug mode: Off":
-		$debug_mode.text = "Debug mode: On"
-	else:
+	if Globals.is_in_debug_mode:
+		Globals.is_in_debug_mode = false
+		get_tree().set_debug_collisions_hint(false)
 		$debug_mode.text = "Debug mode: Off"
+	else:
+		Globals.is_in_debug_mode = true
+		get_tree().set_debug_collisions_hint(true)
+		$debug_mode.text = "Debug mode: On"
 
 
 func _on_back_button_pressed():
@@ -116,4 +120,9 @@ func _load_settings():
 		$resolutions.select(1)
 	elif resolution == Vector2i(1280, 720):
 		$resolutions.select(0)
+
+	if Globals.is_in_debug_mode:
+		$debug_mode.text = "Debug mode: On"
+	else:
+		$debug_mode.text = "Debug mode: Off"
 
