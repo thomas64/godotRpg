@@ -1,6 +1,8 @@
 class_name Constant
 
 
+const SETTINGS_FILE: String = "user://settings.cfg"
+
 const SCREEN_WIDTH: float = 1920.0
 const SCREEN_HEIGHT: float = 1080.0
 

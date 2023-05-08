@@ -92,14 +92,20 @@ func _on_debug_mode_pressed():
 		$debug_mode.text = "Debug mode: On"
 
 
+func _on_view_controls_pressed():
+	AudioManager.play_sfx("menu_confirm")
+	hide()
+	$%controls_menu.show()
+
+
 func _on_back_button_pressed():
 	AudioManager.play_sfx("menu_back")
-	_config.save("res://settings.cfg")
-	hide()
+	_config.save(Constant.SETTINGS_FILE)
+	get_parent().hide()
 
 
 func _load_settings():
-	_config.load("res://settings.cfg")
+	_config.load(Constant.SETTINGS_FILE)
 
 	if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED:
 		$vsync_button.text = "V-Sync: Off"

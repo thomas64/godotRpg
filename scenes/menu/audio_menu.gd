@@ -45,12 +45,12 @@ func _on_sfx_value_changed(value):
 
 func _on_back_button_pressed():
 	AudioManager.play_sfx("menu_back")
-	_config.save("res://settings.cfg")
+	_config.save(Constant.SETTINGS_FILE)
 	hide()
 
 
 func _load_settings():
-	_config.load("res://settings.cfg")
+	_config.load(Constant.SETTINGS_FILE)
 
 	$bgm_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgm")))
 	$bgs_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("bgs")))

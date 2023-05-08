@@ -5,7 +5,7 @@ var _config = ConfigFile.new()
 
 
 func _ready():
-	_config.load("res://settings.cfg")
+	_config.load(Constant.SETTINGS_FILE)
 
 	var bgm_volume: float = _config.get_value("Audio", "bgm_volume", 1)
 	var bgs_volume: float = _config.get_value("Audio", "bgs_volume", 1)
@@ -32,5 +32,5 @@ func _ready():
 	_config.set_value("Settings", "vsync", vsync)
 	_config.set_value("Settings", "resolution", resolution)
 
-	_config.save("res://settings.cfg")
+	_config.save(Constant.SETTINGS_FILE)
 
