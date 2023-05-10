@@ -9,6 +9,10 @@ func _ready():
 
 
 func _input(event):
+	if event is InputEventMouse:
+		get_viewport().set_input_as_handled()
+		return
+
 	if event.is_action_pressed("ui_focus_prev") or event.is_action_pressed("ui_focus_next"):
 		get_viewport().set_input_as_handled()
 		return

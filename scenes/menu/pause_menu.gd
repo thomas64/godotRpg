@@ -2,7 +2,7 @@ extends Control
 
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
 		accept_event()
 		_on_continue_button_pressed()
 
@@ -24,7 +24,7 @@ func _on_settings_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
 	hide()
 	$%settings_menu.show()
-	$%settings_menu/settings_menu.on_open()
+	$%settings_menu.on_open()
 
 
 func _on_audio_button_pressed():
