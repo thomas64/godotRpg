@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b485gf5b2m4b5"]
+[gd_scene load_steps=11 format=3 uid="uid://b485gf5b2m4b5"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu_screen.gd" id="1_u5i37"]
 [ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_gcrt3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2egt0e15teh" path="res://scenes/menu/main_menu.tscn" id="4_km77a"]
 [ext_resource type="PackedScene" uid="uid://ddjxb88itxr" path="res://scenes/menu/settings_menu.tscn" id="5_4okib"]
 [ext_resource type="PackedScene" uid="uid://ceb4jxjlp6voy" path="res://scenes/menu/audio_menu.tscn" id="6_e24v4"]
+[ext_resource type="PackedScene" uid="uid://cfr6k2bd1j8vb" path="res://scenes/menu/load_menu.tscn" id="6_ei828"]
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="6_yldwm"]
 [ext_resource type="Script" path="res://scenes/menu/credits_scroll.gd" id="8_0qos3"]
 [ext_resource type="PackedScene" uid="uid://dt3ljimfmw3ua" path="res://scenes/other/fps_counter.tscn" id="9_o228w"]
@@ -54,6 +55,19 @@ offset_left = -441.0
 offset_top = 200.0
 offset_right = -278.0
 offset_bottom = 450.0
+grow_horizontal = 0
+
+[node name="load_menu" parent="." instance=ExtResource("6_ei828")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -545.0
+offset_top = 200.0
+offset_right = -175.0
+offset_bottom = 540.0
 grow_horizontal = 0
 
 [node name="settings_menu" parent="." instance=ExtResource("5_4okib")]
@@ -220,6 +234,7 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="credits_scroll"]
 wait_time = 0.01
 
+[connection signal="hidden" from="load_menu" to="." method="_on_load_menu_hidden"]
 [connection signal="hidden" from="settings_menu" to="." method="_on_settings_menu_hidden"]
 [connection signal="hidden" from="audio_menu" to="." method="_on_audio_menu_hidden"]
 [connection signal="timeout" from="credits_scroll/Timer" to="credits_scroll" method="_on_credits_scroll"]

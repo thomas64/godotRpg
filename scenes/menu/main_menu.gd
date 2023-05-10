@@ -3,8 +3,9 @@ extends Control
 
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
-	AudioManager.fade("bgm_brave")
-	SceneChanger.with_fade_to("res://scenes/world/world.tscn")
+	hide()
+	$%load_menu.show()
+	$%load_menu.on_open()
 
 
 func _on_settings_button_pressed():

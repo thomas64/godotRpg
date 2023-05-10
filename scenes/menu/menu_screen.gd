@@ -36,6 +36,11 @@ func _input(event):
 			AudioManager.play_sfx("menu_cursor")
 
 
+func _on_load_menu_hidden():
+	$main_menu.show()
+	$main_menu/start_button.grab_focus()
+
+
 func _on_settings_menu_hidden():
 	$main_menu.show()
 	$main_menu/settings_button.grab_focus()
