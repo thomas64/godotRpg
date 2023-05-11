@@ -72,5 +72,4 @@ Are you sure you want to exit?"
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="audio_button" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="main_button" to="." method="_on_main_button_pressed"]
-[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

@@ -24,3 +24,7 @@ func _input(event):
 		else:
 			AudioManager.play_sfx("menu_cursor")
 
+
+func _on_canceled():
+	AudioManager.play_sfx("menu_back")
+

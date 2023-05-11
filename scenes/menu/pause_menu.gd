@@ -46,7 +46,3 @@ func _on_confirmation_dialog_confirmed():
 	SceneChanger.with_fade_to_scene("res://scenes/menu/menu_screen.tscn")
 	get_tree().paused = false
 
-
-func _on_confirmation_dialog_canceled():
-	AudioManager.play_sfx("menu_back")
-

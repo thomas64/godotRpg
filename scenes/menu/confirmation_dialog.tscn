@@ -23,3 +23,5 @@ offset_right = 464.0
 offset_bottom = 132.0
 text = "Centered Text Here..."
 horizontal_alignment = 1
+
+[connection signal="canceled" from="." to="." method="_on_canceled"]
