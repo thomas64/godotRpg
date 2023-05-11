@@ -1,9 +1,9 @@
 extends Control
 
 
-const save_file1: String = "user://save1.dat"
-const save_file2: String = "user://save2.dat"
-const save_file3: String = "user://save3.dat"
+const save_file1: String = "user://save1.tres"
+const save_file2: String = "user://save2.tres"
+const save_file3: String = "user://save3.tres"
 
 var selected_profile: int = 1
 
@@ -54,14 +54,21 @@ func _process(_delta):
 
 
 func _on_start_pressed():
-	# todo, continue here:
 	AudioManager.play_sfx("menu_confirm")
 	AudioManager.fade("bgm_brave")
-	SceneChanger.with_fade_to("res://scenes/world/world.tscn")
+	# todo, continue here:
+	if not ResourceLoader.exists(save_file1):
+		var saveData = SaveData.new()
+		saveData.profile_name = "Thomas"
+		saveData.save_date = Time.get_datetime_string_from_system().replace("T", " ").left(-3)
+		ResourceSaver.save(saveData, save_file1)
+	SceneChanger.with_fade_to_world_to_map("honeywood_forest_path")
 
 
 func _on_delete_pressed():
-	pass # Replace with function body.
+	# todo, confirmation
+	DirAccess.remove_absolute(save_file1)
+	_load_profiles()
 
 
 func _on_back_pressed():

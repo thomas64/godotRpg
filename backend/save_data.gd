@@ -2,7 +2,7 @@ extends Resource
 class_name SaveData
 
 
-var profile_name: String
-var save_date: String
-var current_map: String
+@export var profile_name: String
+@export var save_date: String
+@export var current_map: String
 

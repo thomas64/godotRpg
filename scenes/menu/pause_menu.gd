@@ -16,7 +16,7 @@ func _on_continue_button_pressed():
 func _on_load_button_pressed():
 	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
-	SceneChanger.with_fade_to("res://scenes/world/world.tscn")
+	SceneChanger.with_fade_to_world_to_map("honeywood_forest_path")
 	get_tree().paused = false
 
 
@@ -43,7 +43,7 @@ func _on_main_button_pressed():
 func _on_confirmation_dialog_confirmed():
 	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
-	SceneChanger.with_fade_to("res://scenes/menu/menu_screen.tscn")
+	SceneChanger.with_fade_to_scene("res://scenes/menu/menu_screen.tscn")
 	get_tree().paused = false
 
 

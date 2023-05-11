@@ -9,9 +9,12 @@ func fade_to_normal():
 	$AnimationPlayer.play("fade_to_normal")
 
 
-func _on_animation_player_animation_started(anim_name):
-	if anim_name == "fade_to_black":
-		get_tree().root.set_disable_input(true)
+func _on_animation_player_animation_started(_anim_name):
+	get_tree().root.set_disable_input(true)
+
+
+func _on_animation_player_animation_changed(_old_name, _new_name):
+	get_tree().root.set_disable_input(true)
 
 
 func _on_animation_player_animation_finished(anim_name):
