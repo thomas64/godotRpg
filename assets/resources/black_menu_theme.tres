@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://byrv18r6jjj5l"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://byrv18r6jjj5l"]
 
 [ext_resource type="FontFile" uid="uid://1je1gl4qls2w" path="res://assets/fonts/barlow_regular.ttf" id="1_jqipu"]
 
@@ -11,6 +11,22 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sloya"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2qug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52atr"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2yto"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_x0mkt"]
 
@@ -29,6 +45,13 @@ Button/styles/pressed = SubResource("StyleBoxEmpty_k2qug")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 45
 Label/fonts/font = ExtResource("1_jqipu")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/constants/caret_width = 2
+LineEdit/font_sizes/font_size = 45
+LineEdit/fonts/font = ExtResource("1_jqipu")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_52atr")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_o2yto")
 OptionButton/constants/h_separation = 25
 OptionButton/constants/modulate_arrow = 1
 OptionButton/font_sizes/font_size = 40
