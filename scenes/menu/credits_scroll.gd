@@ -7,10 +7,17 @@ func on_open():
 
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
-		if visible:
+	if visible:
+
+		if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right") \
+		or event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+			accept_event()
+			return
+
+		if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
 			accept_event()
 			_close_credits()
+			return
 
 
 func _on_credits_scroll():
@@ -19,8 +26,6 @@ func _on_credits_scroll():
 
 func _close_credits():
 	AudioManager.play_sfx("menu_back")
-	hide()
 	$Timer.stop()
-	$%main_menu.show()
-	$%main_menu/credits_button.grab_focus()
+	hide()
 

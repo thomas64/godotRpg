@@ -26,6 +26,9 @@ func _input(event):
 			accept_event()
 			return
 		
+		if event.is_action_pressed("ui_up"):
+			AudioManager.play_sfx("menu_cursor")
+		
 		if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
 			if (event.is_action_pressed("ui_left") and $%start_button.has_focus()) \
 			or (event.is_action_pressed("ui_right") and $%back_button.has_focus()):
@@ -54,6 +57,7 @@ func _on_input_field_text_submitted(new_text):
 
 
 func _on_start_button_pressed():
+	AudioManager.play_sfx("menu_confirm")
 	var save_data := SaveData.new()
 	save_data.profile_name = _profile_name
 	save_data.save_date = Time.get_datetime_string_from_system().replace("T", " ").left(-3)

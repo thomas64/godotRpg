@@ -2,9 +2,19 @@ extends Control
 
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
-		accept_event()
-		_on_continue_button_pressed()
+	if visible:
+
+		if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
+			accept_event()
+			_on_continue_button_pressed()
+			return
+
+		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+			if (event.is_action_pressed("ui_up") and $continue_button.has_focus()) \
+			or (event.is_action_pressed("ui_down") and $main_button.has_focus()):
+				AudioManager.play_sfx("menu_error")
+			else:
+				AudioManager.play_sfx("menu_cursor")
 
 
 func _on_continue_button_pressed():

@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbo2w7mx358v"]
+
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_tbwbo"]
+[ext_resource type="Script" path="res://scenes/menu/credits_scroll.gd" id="2_26bn4"]
+
+[node name="credits_scroll" type="Label"]
+offset_right = 925.0
+offset_bottom = 3534.0
+theme = ExtResource("1_tbwbo")
+text = "CREDITS
+Adan Chronicles
+Crystal of Time
+
+- - -
+
+GAME DESIGN
+Thomas M. Hesselink
+
+PROGRAMMING
+Thomas M. Hesselink
+
+MUSIC SELECTION
+Machteld Hesselink
+Thomas M. Hesselink
+
+TESTING
+Martijn Hazendonk
+Daniel Rosenkranz
+Machteld Hesselink
+Sieger Noppe
+Nathan van der Stoep
+
+- - -
+
+Graphics Copyright Notice
+
+\"On the verge\"
+by Studio VDS
+
+
+\"Titlelogo\"
+by F. Stellingwerf
+
+
+\"Painterly Spell Icons\"
+by J.W. Bjerk (eleazzaar)
+www.jwbjerk.com/art
+
+- - -
+
+Music Copyright Notice
+
+
+
+
+
+
+
+
+by Yusaku Kishigami
+www.presence-of-music.com
+
+
+Some of the sounds in this project were created
+by David McKee (ViRiX)
+www.soundcloud.com/virix
+
+- - -
+
+COPYRIGHT
+T64.nl
+"
+horizontal_alignment = 1
+script = ExtResource("2_26bn4")
+metadata/_edit_group_ = true
+
+[node name="music_left" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 693.0
+offset_right = 208.0
+offset_bottom = 1035.0
+grow_vertical = 2
+text = "\"Approach\"
+\"Brave\"
+\"Cave\"
+\"Den\"
+\"Find\"
+\"Go out\""
+horizontal_alignment = 1
+
+[node name="music_center" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = 693.0
+offset_right = 114.5
+offset_bottom = 1035.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "\"Journey\"
+\"Quiet town\"
+\"Search\"
+\"Seashore\"
+\"Shadow\"
+\"Spelunk\""
+
+[node name="music_right" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = 693.0
+offset_bottom = 1035.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "\"Store\"
+\"Town\"
+\"Volcano\"
+\"Wake up\"
+\"Wayfarer\"
+\"Woods\""
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+
+[connection signal="timeout" from="Timer" to="." method="_on_credits_scroll"]

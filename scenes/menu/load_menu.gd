@@ -30,7 +30,7 @@ func on_open_from_pause():
 
 
 func _input(event):
-	if $load_menu.visible:
+	if visible and $load_menu.visible:
 	
 		if event.is_action_pressed("ui_cancel"):
 			accept_event()
@@ -56,14 +56,14 @@ func _input(event):
 				if _selected_profile == 1:
 					AudioManager.play_sfx("menu_error")
 				else:
+					AudioManager.play_sfx("menu_cursor")
 					_selected_profile -= 1
 			elif event.is_action_pressed("ui_down"):
 				if _selected_profile == 3:
 					AudioManager.play_sfx("menu_error")
 				else:
+					AudioManager.play_sfx("menu_cursor")
 					_selected_profile += 1
-			else:
-				AudioManager.play_sfx("menu_cursor")
 
 
 func _process(_delta):

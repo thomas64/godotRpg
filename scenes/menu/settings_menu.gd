@@ -14,9 +14,9 @@ func on_open():
 
 
 func _input(event):
-	if visible:
+	if visible and $settings_menu.visible:
 
-		if $settings_menu.visible and event.is_action_pressed("ui_cancel"):
+		if event.is_action_pressed("ui_cancel"):
 			accept_event()
 			if $%resolutions.get_popup().visible:
 				$%resolutions.get_popup().hide()
@@ -28,6 +28,13 @@ func _input(event):
 			if ($%debug_mode.has_focus() and event.is_action_pressed("ui_up")) \
 			or ($%fullscreen_button.has_focus() and event.is_action_pressed("ui_down")):
 				$%resolutions.grab_focus()
+
+		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+			if (event.is_action_pressed("ui_up") and $%vsync_button.has_focus()) \
+			or (event.is_action_pressed("ui_down") and $%back_button.has_focus()):
+				AudioManager.play_sfx("menu_error")
+			else:
+				AudioManager.play_sfx("menu_cursor")
 
 
 func _on_vsync_button_pressed():

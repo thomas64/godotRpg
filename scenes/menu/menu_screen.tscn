@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b485gf5b2m4b5"]
+[gd_scene load_steps=10 format=3 uid="uid://b485gf5b2m4b5"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu_screen.gd" id="1_u5i37"]
 [ext_resource type="Texture2D" uid="uid://delfw7augsost" path="res://assets/sprites/titlescreen.jpg" id="2_gcrt3"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddjxb88itxr" path="res://scenes/menu/settings_menu.tscn" id="5_4okib"]
 [ext_resource type="PackedScene" uid="uid://ceb4jxjlp6voy" path="res://scenes/menu/audio_menu.tscn" id="6_e24v4"]
 [ext_resource type="PackedScene" uid="uid://cfr6k2bd1j8vb" path="res://scenes/menu/load_menu.tscn" id="6_ei828"]
-[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="6_yldwm"]
-[ext_resource type="Script" path="res://scenes/menu/credits_scroll.gd" id="8_0qos3"]
+[ext_resource type="PackedScene" uid="uid://bbo2w7mx358v" path="res://scenes/menu/credits_scroll.tscn" id="9_gy0l6"]
 [ext_resource type="PackedScene" uid="uid://dt3ljimfmw3ua" path="res://scenes/other/fps_counter.tscn" id="9_o228w"]
 
 [node name="menu_screen" type="Control"]
@@ -46,7 +45,6 @@ texture = ExtResource("3_qdbcb")
 [node name="fps_counter" parent="." instance=ExtResource("9_o228w")]
 
 [node name="main_menu" parent="." instance=ExtResource("4_km77a")]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -96,7 +94,7 @@ offset_right = -235.0
 offset_bottom = 649.0
 grow_horizontal = 0
 
-[node name="credits_scroll" type="Label" parent="."]
+[node name="credits_scroll" parent="." instance=ExtResource("9_gy0l6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -105,136 +103,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -462.5
 offset_right = 462.5
-offset_bottom = 3534.0
 grow_horizontal = 2
-theme = ExtResource("6_yldwm")
-text = "CREDITS
-Adan Chronicles
-Crystal of Time
-
-- - -
-
-GAME DESIGN
-Thomas M. Hesselink
-
-PROGRAMMING
-Thomas M. Hesselink
-
-MUSIC SELECTION
-Machteld Hesselink
-Thomas M. Hesselink
-
-TESTING
-Martijn Hazendonk
-Daniel Rosenkranz
-Machteld Hesselink
-Sieger Noppe
-Nathan van der Stoep
-
-- - -
-
-Graphics Copyright Notice
-
-\"On the verge\"
-by Studio VDS
-
-
-\"Titlelogo\"
-by F. Stellingwerf
-
-
-\"Painterly Spell Icons\"
-by J.W. Bjerk (eleazzaar)
-www.jwbjerk.com/art
-
-- - -
-
-Music Copyright Notice
-
-
-
-
-
-
-
-
-by Yusaku Kishigami
-www.presence-of-music.com
-
-
-Some of the sounds in this project were created
-by David McKee (ViRiX)
-www.soundcloud.com/virix
-
-- - -
-
-COPYRIGHT
-T64.nl
-"
-horizontal_alignment = 1
-script = ExtResource("8_0qos3")
-
-[node name="music_left" type="Label" parent="credits_scroll"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 693.0
-offset_right = 208.0
-offset_bottom = 1035.0
-grow_vertical = 2
-text = "\"Approach\"
-\"Brave\"
-\"Cave\"
-\"Den\"
-\"Find\"
-\"Go out\""
-horizontal_alignment = 1
-
-[node name="music_center" type="Label" parent="credits_scroll"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -114.5
-offset_top = 693.0
-offset_right = 114.5
-offset_bottom = 1035.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "\"Journey\"
-\"Quiet town\"
-\"Search\"
-\"Seashore\"
-\"Shadow\"
-\"Spelunk\""
-
-[node name="music_right" type="Label" parent="credits_scroll"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = 693.0
-offset_bottom = 1035.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "\"Store\"
-\"Town\"
-\"Volcano\"
-\"Wake up\"
-\"Wayfarer\"
-\"Woods\""
-horizontal_alignment = 1
-
-[node name="Timer" type="Timer" parent="credits_scroll"]
-wait_time = 0.01
 
 [connection signal="hidden" from="load_menu" to="." method="_on_load_menu_hidden"]
 [connection signal="hidden" from="settings_menu" to="." method="_on_settings_menu_hidden"]
 [connection signal="hidden" from="audio_menu" to="." method="_on_audio_menu_hidden"]
-[connection signal="timeout" from="credits_scroll/Timer" to="credits_scroll" method="_on_credits_scroll"]
+[connection signal="hidden" from="credits_scroll" to="." method="_on_credits_scroll_hidden"]

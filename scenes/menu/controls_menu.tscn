@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://yi0fs6chjdop"]
+[gd_scene load_steps=2 format=3 uid="uid://yi0fs6chjdop"]
 
 [ext_resource type="Script" path="res://scenes/menu/controls_menu.gd" id="1_hagys"]
-[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_ulevs"]
 
 [node name="controls_menu" type="HBoxContainer"]
 offset_right = 516.0
 offset_bottom = 213.0
-theme = ExtResource("1_ulevs")
 theme_override_constants/separation = 40
 script = ExtResource("1_hagys")
 metadata/_edit_group_ = true
