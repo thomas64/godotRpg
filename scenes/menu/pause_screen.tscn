@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cugjnia6727um"]
+[gd_scene load_steps=8 format=3 uid="uid://cugjnia6727um"]
 
 [ext_resource type="Script" path="res://scenes/menu/pause_screen.gd" id="1_h85p1"]
 [ext_resource type="Texture2D" uid="uid://bxqndhwg2lk6l" path="res://assets/sprites/accot_w.png" id="2_vrb4r"]
 [ext_resource type="PackedScene" uid="uid://1l51bipmoyuq" path="res://scenes/menu/pause_menu.tscn" id="3_77qln"]
+[ext_resource type="PackedScene" uid="uid://cfr6k2bd1j8vb" path="res://scenes/menu/load_menu.tscn" id="4_nuti7"]
 [ext_resource type="PackedScene" uid="uid://ddjxb88itxr" path="res://scenes/menu/settings_menu.tscn" id="4_yf762"]
 [ext_resource type="PackedScene" uid="uid://ceb4jxjlp6voy" path="res://scenes/menu/audio_menu.tscn" id="5_h4pq5"]
 [ext_resource type="Theme" uid="uid://cidbmk561xyog" path="res://assets/resources/white_menu_theme.tres" id="5_w5xcn"]
@@ -46,11 +47,20 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -470.0
+offset_left = -469.0
 offset_top = 200.0
-offset_right = -251.0
+offset_right = -250.0
 offset_bottom = 450.0
 grow_horizontal = 0
+
+[node name="load_menu" parent="Control" instance=ExtResource("4_nuti7")]
+unique_name_in_owner = true
+visible = false
+offset_left = 1310.0
+offset_top = 200.0
+offset_right = 1810.0
+offset_bottom = 540.0
+theme = ExtResource("5_w5xcn")
 
 [node name="settings_menu" parent="Control" instance=ExtResource("4_yf762")]
 unique_name_in_owner = true
@@ -81,5 +91,6 @@ grow_horizontal = 0
 theme = ExtResource("5_w5xcn")
 
 [connection signal="visibility_changed" from="." to="Control" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Control/load_menu" to="Control" method="_on_load_menu_hidden"]
 [connection signal="hidden" from="Control/settings_menu" to="Control" method="_on_settings_menu_hidden"]
 [connection signal="hidden" from="Control/audio_menu" to="Control" method="_on_audio_menu_hidden"]

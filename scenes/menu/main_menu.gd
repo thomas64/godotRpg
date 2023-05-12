@@ -5,7 +5,7 @@ func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
 	hide()
 	$%load_menu.show()
-	$%load_menu.on_open()
+	$%load_menu.on_open_from_main()
 
 
 func _on_settings_button_pressed():

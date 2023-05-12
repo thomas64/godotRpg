@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://yi0fs6chjdop"]
+
+[ext_resource type="Script" path="res://scenes/menu/controls_menu.gd" id="1_hagys"]
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_ulevs"]
+
+[node name="controls_menu" type="HBoxContainer"]
+offset_right = 516.0
+offset_bottom = 213.0
+theme = ExtResource("1_ulevs")
+theme_override_constants/separation = 40
+script = ExtResource("1_hagys")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="movement" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Movement"
+
+[node name="run" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Run"
+
+[node name="crouch" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Crouch"
+
+[node name="pause" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="arrows" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Arrows"
+horizontal_alignment = 1
+
+[node name="shift" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Shift"
+horizontal_alignment = 1
+
+[node name="ctrl" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Ctrl"
+horizontal_alignment = 1
+
+[node name="esc" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Esc"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="l3" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "L3"
+horizontal_alignment = 1
+
+[node name="r1" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "R1"
+horizontal_alignment = 1
+
+[node name="l1" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "L1"
+horizontal_alignment = 1
+
+[node name="start" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Start"
+horizontal_alignment = 1

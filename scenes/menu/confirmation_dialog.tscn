@@ -25,3 +25,4 @@ text = "Centered Text Here..."
 horizontal_alignment = 1
 
 [connection signal="canceled" from="." to="." method="_on_canceled"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -16,14 +16,6 @@ func on_open():
 func _input(event):
 	if visible:
 
-		if $controls_menu.visible and (event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_accept")):
-			accept_event()
-			AudioManager.play_sfx("menu_back")
-			$controls_menu.hide()
-			$settings_menu.show()
-			$%view_controls.grab_focus()
-			return
-
 		if $settings_menu.visible and event.is_action_pressed("ui_cancel"):
 			accept_event()
 			if $%resolutions.get_popup().visible:

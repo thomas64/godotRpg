@@ -14,10 +14,10 @@ func _on_continue_button_pressed():
 
 
 func _on_load_button_pressed():
-	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
-	SceneChanger.with_fade_to_world_to_map("honeywood_forest_path")
-	get_tree().paused = false
+	hide()
+	$%load_menu.show()
+	$%load_menu.on_open_from_pause()
 
 
 func _on_settings_button_pressed():
@@ -37,7 +37,6 @@ func _on_audio_button_pressed():
 func _on_main_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
 	$ConfirmationDialog.popup_centered()
-	$ConfirmationDialog.get_cancel_button().grab_focus()
 
 
 func _on_confirmation_dialog_confirmed():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddjxb88itxr"]
+[gd_scene load_steps=4 format=3 uid="uid://ddjxb88itxr"]
 
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_8nhy3"]
 [ext_resource type="Script" path="res://scenes/menu/settings_menu.gd" id="2_5b7ek"]
+[ext_resource type="PackedScene" uid="uid://yi0fs6chjdop" path="res://scenes/menu/controls_menu.tscn" id="3_qh4a1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ theme = ExtResource("1_8nhy3")
 script = ExtResource("2_5b7ek")
 
 [node name="settings_menu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 340.0
 offset_bottom = 360.0
@@ -96,82 +98,11 @@ focus_next = NodePath(".")
 focus_previous = NodePath("../view_controls")
 text = "Back"
 
-[node name="controls_menu" type="HBoxContainer" parent="."]
+[node name="controls_menu" parent="." instance=ExtResource("3_qh4a1")]
 visible = false
 layout_mode = 0
 offset_left = -88.0
 offset_right = 428.0
-offset_bottom = 240.0
-theme_override_constants/separation = 40
-metadata/_edit_group_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="controls_menu"]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="movement" type="Label" parent="controls_menu/VBoxContainer"]
-layout_mode = 2
-text = "Movement"
-
-[node name="run" type="Label" parent="controls_menu/VBoxContainer"]
-layout_mode = 2
-text = "Run"
-
-[node name="crouch" type="Label" parent="controls_menu/VBoxContainer"]
-layout_mode = 2
-text = "Crouch"
-
-[node name="pause" type="Label" parent="controls_menu/VBoxContainer"]
-layout_mode = 2
-text = "Pause"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="controls_menu"]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="arrows" type="Label" parent="controls_menu/VBoxContainer2"]
-layout_mode = 2
-text = "Arrows"
-horizontal_alignment = 1
-
-[node name="shift" type="Label" parent="controls_menu/VBoxContainer2"]
-layout_mode = 2
-text = "Shift"
-horizontal_alignment = 1
-
-[node name="ctrl" type="Label" parent="controls_menu/VBoxContainer2"]
-layout_mode = 2
-text = "Ctrl"
-horizontal_alignment = 1
-
-[node name="esc" type="Label" parent="controls_menu/VBoxContainer2"]
-layout_mode = 2
-text = "Esc"
-horizontal_alignment = 1
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="controls_menu"]
-layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="l3" type="Label" parent="controls_menu/VBoxContainer3"]
-layout_mode = 2
-text = "L3"
-horizontal_alignment = 1
-
-[node name="r1" type="Label" parent="controls_menu/VBoxContainer3"]
-layout_mode = 2
-text = "R1"
-horizontal_alignment = 1
-
-[node name="l1" type="Label" parent="controls_menu/VBoxContainer3"]
-layout_mode = 2
-text = "L1"
-horizontal_alignment = 1
-
-[node name="start" type="Label" parent="controls_menu/VBoxContainer3"]
-layout_mode = 2
-text = "Start"
-horizontal_alignment = 1
 
 [connection signal="pressed" from="settings_menu/vsync_button" to="." method="_on_vsync_button_pressed"]
 [connection signal="pressed" from="settings_menu/fullscreen_button" to="." method="_on_fullscreen_button_pressed"]

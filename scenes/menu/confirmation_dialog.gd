@@ -25,6 +25,11 @@ func _input(event):
 			AudioManager.play_sfx("menu_cursor")
 
 
+func _on_visibility_changed():
+	if visible:
+		get_cancel_button().grab_focus()
+
+
 func _on_canceled():
 	AudioManager.play_sfx("menu_back")
 

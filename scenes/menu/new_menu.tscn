@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://negcndkvh37s"]
+
+[ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_e4v0v"]
+[ext_resource type="Script" path="res://scenes/menu/new_menu.gd" id="2_rvn4f"]
+
+[node name="new_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+theme = ExtResource("1_e4v0v")
+script = ExtResource("2_rvn4f")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -188.0
+offset_right = 188.0
+offset_bottom = 57.0
+grow_horizontal = 2
+text = "Enter profile name:"
+horizontal_alignment = 1
+
+[node name="input_field" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -30.0
+offset_right = 140.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mozes"
+alignment = 1
+max_length = 8
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+caret_blink = true
+caret_column = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.5
+offset_top = -54.0
+offset_right = 180.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="start_button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start"
+
+[node name="back_button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[connection signal="text_changed" from="input_field" to="." method="_on_input_field_text_changed"]
+[connection signal="text_submitted" from="input_field" to="." method="_on_input_field_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/back_button" to="." method="_on_back_button_pressed"]

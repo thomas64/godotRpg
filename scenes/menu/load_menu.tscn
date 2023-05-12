@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfr6k2bd1j8vb"]
+[gd_scene load_steps=5 format=3 uid="uid://cfr6k2bd1j8vb"]
 
 [ext_resource type="Theme" uid="uid://byrv18r6jjj5l" path="res://assets/resources/black_menu_theme.tres" id="1_7uh8t"]
 [ext_resource type="Script" path="res://scenes/menu/load_menu.gd" id="2_4x7ej"]
 [ext_resource type="PackedScene" uid="uid://deegbjn341via" path="res://scenes/menu/confirmation_dialog.tscn" id="3_slals"]
+[ext_resource type="PackedScene" uid="uid://negcndkvh37s" path="res://scenes/menu/new_menu.tscn" id="4_g58kv"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ script = ExtResource("2_4x7ej")
 
 [node name="load_menu" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 370.0
+offset_right = 500.0
 offset_bottom = 340.0
 metadata/_edit_group_ = true
 
@@ -68,28 +69,39 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -180.5
+offset_left = -240.0
 offset_top = -54.0
-offset_right = 180.5
+offset_right = 240.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="load_start" type="Button" parent="load_menu/HBoxContainer"]
+[node name="load_button" type="Button" parent="load_menu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+
+[node name="start_button" type="Button" parent="load_menu/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
-[node name="load_delete" type="Button" parent="load_menu/HBoxContainer"]
+[node name="delete_button" type="Button" parent="load_menu/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Delete"
 
-[node name="load_back" type="Button" parent="load_menu/HBoxContainer"]
+[node name="back_button" type="Button" parent="load_menu/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Back"
+
+[node name="confirm_load" parent="load_menu" instance=ExtResource("3_slals")]
+unique_name_in_owner = true
+visible = false
+centered_text = "Any unsaved progress will be lost.
+Are you sure you want to load this profile?"
 
 [node name="confirm_delete" parent="load_menu" instance=ExtResource("3_slals")]
 unique_name_in_owner = true
@@ -97,80 +109,13 @@ visible = false
 centered_text = "This save file will be removed.
 Are you sure?"
 
-[node name="new_menu" type="Control" parent="."]
+[node name="new_menu" parent="." instance=ExtResource("4_g58kv")]
 visible = false
-anchors_preset = 0
-offset_right = 400.0
-offset_bottom = 200.0
-metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="new_menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -188.0
-offset_right = 188.0
-offset_bottom = 57.0
-grow_horizontal = 2
-text = "Enter profile name:"
-horizontal_alignment = 1
-
-[node name="new_edit" type="LineEdit" parent="new_menu"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -140.0
-offset_top = -30.0
-offset_right = 140.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Mozes"
-alignment = 1
-max_length = 8
-context_menu_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-caret_blink = true
-caret_column = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="new_menu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -180.5
-offset_top = -54.0
-offset_right = 180.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="new_start" type="Button" parent="new_menu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Start"
-
-[node name="new_back" type="Button" parent="new_menu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Back"
-
-[connection signal="pressed" from="load_menu/HBoxContainer/load_start" to="." method="_on_load_start_pressed"]
-[connection signal="pressed" from="load_menu/HBoxContainer/load_delete" to="." method="_on_delete_pressed"]
-[connection signal="pressed" from="load_menu/HBoxContainer/load_back" to="." method="_on_load_back_pressed"]
+[connection signal="pressed" from="load_menu/HBoxContainer/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="load_menu/HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="load_menu/HBoxContainer/delete_button" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="load_menu/HBoxContainer/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="confirmed" from="load_menu/confirm_load" to="." method="_on_confirm_load_confirmed"]
 [connection signal="confirmed" from="load_menu/confirm_delete" to="." method="_on_confirm_delete_confirmed"]
-[connection signal="text_changed" from="new_menu/new_edit" to="." method="_on_line_edit_text_changed"]
-[connection signal="text_submitted" from="new_menu/new_edit" to="." method="_on_new_edit_text_submitted"]
-[connection signal="pressed" from="new_menu/HBoxContainer/new_start" to="." method="_on_new_start_pressed"]
-[connection signal="pressed" from="new_menu/HBoxContainer/new_back" to="." method="_on_new_back_pressed"]
+[connection signal="hidden" from="new_menu" to="." method="_on_new_menu_hidden"]
