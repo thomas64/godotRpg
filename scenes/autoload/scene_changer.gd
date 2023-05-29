@@ -16,10 +16,11 @@ func with_fade_to_world_to_map(map_name: String):
 
 
 func with_fade_to_map(map_name: String):
+	var map_instance = _create_instance_of(map_name)
+	var new_tracks: Array = map_instance.get_node("TileMap").get_meta("audio")
+	AudioManager.fade_all_but(new_tracks)
+
 	var action: Callable = func():
-		var map_instance = _create_instance_of(map_name)
-		var new_tracks: Array = map_instance.get_node("TileMap").get_meta("audio")
-		AudioManager.fade_all_but(new_tracks)
 		var world = get_tree().root.get_node("world")
 		world.change_map_to(map_instance)
 	_fade_and_switch(action)
