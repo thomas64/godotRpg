@@ -22,6 +22,7 @@ buses/default_bus_layout="res://assets/resources/default_bus_layout.tres"
 [autoload]
 
 Globals="*res://scenes/autoload/globals.gd"
+Tools="*res://scenes/autoload/tools.gd"
 SettingsLoader="*res://scenes/autoload/settings_loader.gd"
 TempStorage="*res://scenes/autoload/temp_storage.gd"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
@@ -104,6 +105,11 @@ player_east={
 ui_delete={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194312,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+mini_map={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"echo":false,"script":null)
 ]
 }
 

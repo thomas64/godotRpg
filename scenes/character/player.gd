@@ -64,5 +64,5 @@ func _possible_set_previous_direction():
 func _possible_spawn_player():
 	if TempStorage.has_param("spawn_point"):
 		position = get_parent().get_node(TempStorage.get_param("spawn_point")).position
-		$Camera2D.reset_smoothing()
+		$camera_player.reset_smoothing()
 

@@ -2,7 +2,9 @@ extends Control
 
 
 func _on_pause_screen_visibility_changed():
-	if visible:
+	if get_parent().visible:
+		get_tree().paused = true
+		AudioManager.play_sfx("menu_confirm")
 		$pause_menu/continue_button.grab_focus()
 
 

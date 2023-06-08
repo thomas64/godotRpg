@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cb5qamdbvrtbb"]
 
 [ext_resource type="Script" path="res://scenes/character/player.gd" id="1_sgwqt"]
 [ext_resource type="PackedScene" path="res://scenes/character/character_sprite_animation.tscn" id="2_1qnhu"]
-[ext_resource type="Script" path="res://scenes/map/camera.gd" id="2_w2j1q"]
+[ext_resource type="Script" path="res://scenes/map/camera_player.gd" id="2_jv1ss"]
 [ext_resource type="Script" path="res://scenes/character/player_input.gd" id="2_wkjb4"]
 [ext_resource type="PackedScene" path="res://scenes/character/character_footsteps_audio.tscn" id="5_b6dcy"]
 
@@ -10,13 +10,13 @@
 script = ExtResource("1_sgwqt")
 _feet_offset = 10.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera_player" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("2_w2j1q")
+script = ExtResource("2_jv1ss")
 
 [node name="player_input" type="Node" parent="."]
 script = ExtResource("2_wkjb4")

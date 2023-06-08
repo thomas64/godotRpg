@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt7wj7fan4o2s"]
+[gd_scene load_steps=13 format=3 uid="uid://dt7wj7fan4o2s"]
 
 [ext_resource type="Script" path="res://scenes/autoload/audio_manager.gd" id="1_h1aaj"]
 [ext_resource type="AudioStream" uid="uid://cimvb4nb4xv4k" path="res://assets/audio/bgm/journey.ogg" id="2_4hxoo"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c6k6ay0ea2ncf" path="res://assets/audio/sfx/botw_menu_error.wav" id="8_g5jsh"]
 [ext_resource type="AudioStream" uid="uid://cu01ogwfpgfwk" path="res://assets/audio/sfx/botw_menu_confirm.wav" id="9_dkak0"]
 [ext_resource type="AudioStream" uid="uid://cer01oln2sbwa" path="res://assets/audio/sfx/botw_menu_typing.wav" id="11_ir4ik"]
+[ext_resource type="AudioStream" uid="uid://13kwgbb41ip6" path="res://assets/audio/sfx/botw_minimap.wav" id="12_dyc6x"]
 
 [node name="audio_manager" type="Node"]
 script = ExtResource("1_h1aaj")
@@ -58,4 +59,8 @@ bus = &"sfx"
 
 [node name="menu_typing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ir4ik")
+bus = &"sfx"
+
+[node name="sfx_minimap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_dyc6x")
 bus = &"sfx"

@@ -2,7 +2,7 @@ extends Control
 
 
 func _input(event):
-	if visible:
+	if get_parent().get_parent().visible and visible:
 
 		if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
 			accept_event()

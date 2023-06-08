@@ -25,6 +25,10 @@ text = "Run"
 layout_mode = 2
 text = "Crouch"
 
+[node name="map" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Map"
+
 [node name="pause" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Pause"
@@ -46,6 +50,11 @@ horizontal_alignment = 1
 [node name="ctrl" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 text = "Ctrl"
+horizontal_alignment = 1
+
+[node name="m" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "M"
 horizontal_alignment = 1
 
 [node name="esc" type="Label" parent="VBoxContainer2"]
@@ -70,6 +79,11 @@ horizontal_alignment = 1
 [node name="l1" type="Label" parent="VBoxContainer3"]
 layout_mode = 2
 text = "L1"
+horizontal_alignment = 1
+
+[node name="select" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Select"
 horizontal_alignment = 1
 
 [node name="start" type="Label" parent="VBoxContainer3"]
