@@ -25,5 +25,5 @@ script = ExtResource("2_wkjb4")
 
 [node name="character_footsteps_audio" parent="." instance=ExtResource("5_b6dcy")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="blocker" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 17, -7, 0, -14, -17, -7)

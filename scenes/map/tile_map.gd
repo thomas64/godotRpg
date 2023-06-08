@@ -15,3 +15,11 @@ func get_underground_for(character_position: Vector2) -> String:
 		underground = get_meta("step_sound")
 	return underground
 
+
+func get_size() -> Vector2i:
+	return get_used_rect().size * cell_quadrant_size
+
+
+func save_player_position(new_position: Vector2):
+	pass
+

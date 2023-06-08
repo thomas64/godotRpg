@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://h8abbts3pnbe"]
+[gd_scene load_steps=7 format=3 uid="uid://h8abbts3pnbe"]
 
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_t3rgj"]
 [ext_resource type="PackedScene" uid="uid://dt3ljimfmw3ua" path="res://scenes/other/fps_counter.tscn" id="2_imy0s"]
 [ext_resource type="PackedScene" uid="uid://cugjnia6727um" path="res://scenes/menu/pause_screen.tscn" id="3_bwkrs"]
 [ext_resource type="Script" path="res://scenes/world/minimap.gd" id="4_l1kx4"]
+[ext_resource type="Script" path="res://scenes/world/fog_of_war.gd" id="5_5xn2b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_81b3n"]
+blend_mode = 3
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_t3rgj")
@@ -15,5 +19,15 @@ visible = false
 
 [node name="minimap" type="Camera2D" parent="."]
 process_mode = 2
+visible = false
 enabled = false
 script = ExtResource("4_l1kx4")
+
+[node name="fog_of_war" type="CanvasLayer" parent="minimap"]
+visible = false
+follow_viewport_enabled = true
+script = ExtResource("5_5xn2b")
+
+[node name="fog_image" type="Sprite2D" parent="minimap/fog_of_war"]
+material = SubResource("CanvasItemMaterial_81b3n")
+centered = false

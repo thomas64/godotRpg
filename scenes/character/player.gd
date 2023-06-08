@@ -23,6 +23,7 @@ func _physics_process(delta):
 	move_and_slide()
 	$character_sprite_animation.animate()
 	_play_footsteps()
+	_save_position_in_fog_of_war()
 
 
 func _update_physics(delta):
@@ -54,6 +55,11 @@ func _get_offset_feet_position() -> Vector2:
 			Direction.WEST: return Vector2(position.x - (move_speed / _feet_offset), position.y)
 			Direction.EAST: return Vector2(position.x + (move_speed / _feet_offset), position.y)
 			_: 				return Vector2.ZERO
+
+
+func _save_position_in_fog_of_war():
+	var tile_map: TileMap = get_tree().root.get_node("world").get_current_tile_map()
+	tile_map.save_player_position(position)
 
 
 func _possible_set_previous_direction():
