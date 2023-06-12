@@ -1,12 +1,6 @@
 extends Control
 
 
-const _PROFILE_SAVES: Dictionary = {
-	1: "user://save1.tres",
-	2: "user://save2.tres",
-	3: "user://save3.tres"
-}
-
 var _selected_profile: int = 1
 
 @onready var _profile_labels: Dictionary = {
@@ -74,7 +68,7 @@ func _process(_delta):
 
 
 func _on_load_button_pressed():
-	if ResourceLoader.exists(get_save_file()):
+	if ProfileManager.does_file_path_exist_for(_selected_profile):
 		AudioManager.play_sfx("menu_confirm")
 		$%confirm_load.popup_centered()
 	else:
@@ -83,20 +77,18 @@ func _on_load_button_pressed():
 
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
-	var save_file: String = get_save_file()
-	if ResourceLoader.exists(save_file):
-		var save_data := load(save_file) as SaveData
+	if ProfileManager.does_file_path_exist_for(_selected_profile):
+		var save_data: SaveData = ProfileManager.load_profile(_selected_profile)
 		AudioManager.fade("bgm_brave")
-		Globals.save_file = save_file
 		SceneChanger.with_fade_to_world_to_map(save_data.current_map)
 	else:
 		$load_menu.hide()
 		$new_menu.show()
-		$new_menu.on_open()
+		$new_menu.on_open(_selected_profile)
 
 
 func _on_delete_button_pressed():
-	if ResourceLoader.exists(get_save_file()):
+	if ProfileManager.does_file_path_exist_for(_selected_profile):
 		AudioManager.play_sfx("menu_confirm")
 		$%confirm_delete.popup_centered()
 	else:
@@ -114,16 +106,14 @@ func _on_back_button_pressed():
 func _on_confirm_load_confirmed():
 	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
-	var save_file: String = get_save_file()
-	var save_data := load(save_file) as SaveData
-	Globals.save_file = save_file
+	var save_data: SaveData = ProfileManager.load_profile(_selected_profile)
 	SceneChanger.with_fade_to_world_to_map(save_data.current_map)
 	get_tree().paused = false
 
 
 func _on_confirm_delete_confirmed():
 	AudioManager.play_sfx("menu_confirm")
-	DirAccess.remove_absolute(get_save_file())
+	ProfileManager.delete_profile(_selected_profile)
 	_load_profiles_visual()
 
 
@@ -135,19 +125,10 @@ func _on_new_menu_hidden():
 ################################################################################
 
 
-func get_save_file() -> String:
-	return _PROFILE_SAVES.get(_selected_profile)
-
-
 func _load_profiles_visual():
 	var i: int = 1
 	for label in _profile_labels.values():
-		var save_file: String = _PROFILE_SAVES.get(i)
-		if ResourceLoader.exists(save_file):
-			var save_data := load(save_file) as SaveData
-			label.text = "%s [%s]" % [save_data.profile_name, save_data.save_date]
-		else:
-			label.text = "%s [...]" % i
+		label.text = ProfileManager.get_visual_profile_line(i)
 		i += 1 
 
 

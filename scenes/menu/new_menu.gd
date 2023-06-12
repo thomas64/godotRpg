@@ -1,10 +1,12 @@
 extends Control
 
 
+var _selected_profile: int = 0
 var _profile_name: String = ""
 
 
-func on_open():
+func on_open(selected_profile: int):
+	_selected_profile = selected_profile
 	$input_field.grab_focus()
 
 
@@ -58,18 +60,13 @@ func _on_input_field_text_submitted(new_text):
 
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
-	var save_data := SaveData.new()
-	save_data.profile_name = _profile_name
-	save_data.save_date = Time.get_datetime_string_from_system().replace("T", " ").left(-3)
-	save_data.current_map = "honeywood_forest_path"
-	var save_file: String = get_parent().get_save_file()
-	ResourceSaver.save(save_data, save_file)
+	var save_data: SaveData = ProfileManager.create_profile(_profile_name, _selected_profile)
 	AudioManager.fade("bgm_brave")
-	Globals.save_file = save_file
 	SceneChanger.with_fade_to_world_to_map(save_data.current_map)
 
 
 func _on_back_button_pressed():
+	_selected_profile = 0
 	_profile_name = ""
 	AudioManager.play_sfx("menu_back")
 	hide()
