@@ -8,9 +8,9 @@ func _input(event):
 			_close()
 
 
-func try_open(tile_map: TileMap):
-	if _is_zoom_possible(tile_map.get_size()):
-		_open(tile_map)
+func try_open(map_size: Vector2i):
+	if _is_zoom_possible(map_size):
+		_open(map_size)
 	else:
 		AudioManager.play_sfx("menu_error")
 
@@ -21,10 +21,9 @@ func _is_zoom_possible(map_size: Vector2i) -> bool:
 		and map_size.y * player_cam_zoom.y > Constant.SCREEN_HEIGHT
 
 
-func _open(tile_map: TileMap):
+func _open(map_size: Vector2i):
 	get_tree().paused = true
 	AudioManager.play_sfx("sfx_minimap")
-	var map_size: Vector2i = tile_map.get_size()
 	var fit_scale: Vector2 = Tools.calculate_scale_to_fit_screen(map_size)
 	var fit_zoom: float = minf(fit_scale.x, fit_scale.y)
 	zoom = Vector2(fit_zoom, fit_zoom)
