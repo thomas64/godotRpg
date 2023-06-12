@@ -11,7 +11,7 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		$pause_screen.show()
 	elif event.is_action_pressed("mini_map"):
-	    var map_size: Vector2i = get_children().front().get_node("TileMap").get_size()
+		var map_size: Vector2i = get_children().front().get_node("TileMap").get_size()
 		$minimap.try_open(map_size)
 
 

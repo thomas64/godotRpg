@@ -58,8 +58,8 @@ func _get_offset_feet_position() -> Vector2:
 
 
 func _save_position_in_fog_of_war():
-	var tile_map: TileMap = get_tree().root.get_node("world").get_current_tile_map()
-	tile_map.save_player_position(position)
+	var map_name: String = get_tree().root.get_node("world").front().name
+	Globals.update_fow(map_name, position)
 
 
 func _possible_set_previous_direction():
