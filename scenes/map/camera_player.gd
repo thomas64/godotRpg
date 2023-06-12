@@ -7,10 +7,9 @@ func _init():
 
 
 func _ready():
-	var tile_map: TileMap = get_parent().get_parent().get_node("TileMap")
-	var map_size_in_px: Vector2i = Tools.get_tile_map_size(tile_map)
-	limit_right = map_size_in_px.x
-	limit_bottom = map_size_in_px.y
+	var map_size: Vector2i = get_parent().get_parent().get_node("TileMap").get_size()
+	limit_right = map_size.x
+	limit_bottom = map_size.y
 	
 	await get_tree().create_timer(0.1).timeout
 	

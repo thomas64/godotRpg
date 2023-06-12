@@ -1,12 +1,6 @@
 extends Node
 
 
-func get_tile_map_size(tile_map: TileMap) -> Vector2i:
-	var map_rect: Rect2i = tile_map.get_used_rect()
-	var tile_size: int = tile_map.cell_quadrant_size
-	return map_rect.size * tile_size
-
-
 func calculate_scale_to_fit_screen(object_size: Vector2) -> Vector2:
 	var viewport_width: int = get_viewport().size.x
 	var viewport_height: int = get_viewport().size.y
