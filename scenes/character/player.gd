@@ -23,6 +23,7 @@ func _physics_process(delta):
 	move_and_slide()
 	$character_sprite_animation.animate()
 	_play_footsteps()
+	_save_position_in_fog_of_war()
 
 
 func _update_physics(delta):
@@ -54,6 +55,13 @@ func _get_offset_feet_position() -> Vector2:
 			Direction.WEST: return Vector2(position.x - (move_speed / _feet_offset), position.y)
 			Direction.EAST: return Vector2(position.x + (move_speed / _feet_offset), position.y)
 			_: 				return Vector2.ZERO
+
+
+func _save_position_in_fog_of_war():
+	var world: Node2D = get_tree().root.get_node("world")
+	var map_name: String = world.get_children().front().name
+	var fog_of_war: CanvasLayer = world.get_node("minimap").get_node("fog_of_war")
+	fog_of_war.update(map_name, position)
 
 
 func _possible_set_previous_direction():

@@ -63,4 +63,5 @@ bus = &"sfx"
 
 [node name="sfx_minimap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_dyc6x")
+volume_db = -9.0
 bus = &"sfx"
