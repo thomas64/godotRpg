@@ -1,14 +1,15 @@
 extends CanvasLayer
 
 
-const _TEXTURE = preload("res://assets/lightmaps/fog_of_war.png")
-const _ZOOM_SIZE_OF_LIGHT = 24
+const _TEXTURE: Resource = preload("res://assets/lightmaps/fog_of_war.png")
+const _ZOOM_SIZE_OF_LIGHT: int = 24
+const _GRID_SIZE: float = 100.0
 
 var _blackness: Image
 var _light_image: Image
 var _light_offset = Vector2(_TEXTURE.get_width() / 2.0, _TEXTURE.get_height() / 2.0)
 
-var history_player_positions: Dictionary = {}
+var _history_player_positions: Dictionary = {}
 
 
 func _ready():
@@ -24,19 +25,19 @@ func on_show(tile_map: TileMap):
 		var black_height = map_size.y / _ZOOM_SIZE_OF_LIGHT
 		_blackness = Image.create(black_width, black_height, false, Image.FORMAT_RGBAH)
 		_blackness.fill(Color.BLACK)
-		for position in history_player_positions[tile_map.get_parent().name]:
-			_draw_light(position * Constant.FOG_OF_WAR_GRID_SIZE)
+		for position in _history_player_positions[tile_map.get_parent().name]:
+			_draw_light(position * _GRID_SIZE)
 
 
 func update(map_name: String, player_position: Vector2i):
-	var rounded_position: Vector2i = (player_position / Constant.FOG_OF_WAR_GRID_SIZE).round()
-	if history_player_positions.has(map_name):
-		var positions_on_map_name: Array = history_player_positions[map_name]
+	var rounded_position: Vector2i = (player_position / _GRID_SIZE).round()
+	if _history_player_positions.has(map_name):
+		var positions_on_map_name: Array = _history_player_positions[map_name]
 		if not positions_on_map_name.has(rounded_position):
 			positions_on_map_name.append(rounded_position)
-			history_player_positions[map_name] = positions_on_map_name
+			_history_player_positions[map_name] = positions_on_map_name
 	else:
-		history_player_positions[map_name] = [rounded_position]
+		_history_player_positions[map_name] = [rounded_position]
 
 
 func _draw_light(position: Vector2):
