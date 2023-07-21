@@ -7,7 +7,7 @@ var fog_of_war: Dictionary = {}
 
 
 func update_fow(map_name: String, player_position: Vector2i):
-	var rounded_position: Vector2i = player_position #(player_position / 10.0).round()
+	var rounded_position: Vector2i = (player_position / 100.0).round()
 	if fog_of_war.has(map_name):
 		var positions: Array = fog_of_war[map_name]
 		if not positions.has(rounded_position):

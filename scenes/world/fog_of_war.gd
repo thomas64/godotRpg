@@ -23,7 +23,7 @@ func on_show(tile_map: TileMap):
 		_blackness = Image.create(black_width, black_height, false, Image.FORMAT_RGBAH)
 		_blackness.fill(Color.BLACK)
 		for position in Globals.fog_of_war[tile_map.get_parent().name]:
-			_draw_light(position)
+			_draw_light(position * 100)
 
 
 func _draw_light(position: Vector2):
