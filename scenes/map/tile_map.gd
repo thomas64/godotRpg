@@ -19,7 +19,3 @@ func get_underground_for(character_position: Vector2) -> String:
 func get_size() -> Vector2i:
 	return get_used_rect().size * cell_quadrant_size
 
-
-func save_player_position(new_position: Vector2):
-	pass
-

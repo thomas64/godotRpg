@@ -21,10 +21,8 @@ func on_show(tile_map: TileMap):
 		var black_height = map_size.y / _GRID_SIZE
 		_blackness = Image.create(black_width, black_height, false, Image.FORMAT_RGBAH)
 		_blackness.fill(Color.BLACK)
-
-		# for each of the positions from the container out of tile_map -> draw_light(position)
-#		var player_position = get_parent().get_parent().get_children().front().get_node("player").position
-#		_draw_light(player_position)
+		for position in Globals.fog_of_war[tile_map.get_parent().name]:
+			_draw_light(position)
 
 
 func _draw_light(position: Vector2):
