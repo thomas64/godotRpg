@@ -58,8 +58,10 @@ func _get_offset_feet_position() -> Vector2:
 
 
 func _save_position_in_fog_of_war():
-	var map_name: String = get_tree().root.get_node("world").get_children().front().name
-	Globals.update_fow(map_name, position)
+	var world: Node2D = get_tree().root.get_node("world")
+	var map_name: String = world.get_children().front().name
+	var fog_of_war: CanvasLayer = world.get_node("minimap").get_node("fog_of_war")
+	fog_of_war.update(map_name, position)
 
 
 func _possible_set_previous_direction():
