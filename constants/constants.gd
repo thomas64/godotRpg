@@ -21,3 +21,5 @@ const HALF_TILE_SIZE: int = 24
 
 const FADE_TIME: float = 0.5
 
+const FOG_OF_WAR_GRID_SIZE: float = 100.0
+
