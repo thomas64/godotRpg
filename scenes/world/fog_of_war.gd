@@ -6,6 +6,7 @@ const _GRID_SIZE = 24
 
 var _blackness: Image
 var _light_image: Image
+var _light_offset = Vector2(_TEXTURE.get_width() / 2.0, _TEXTURE.get_height() / 2.0)
 
 
 func _ready():
@@ -28,8 +29,6 @@ func on_show(tile_map: TileMap):
 func _draw_light(position: Vector2):
 	var grid_position = position / _GRID_SIZE
 	var light_rect = Rect2(Vector2.ZERO, Vector2(_light_image.get_width(), _light_image.get_height()))
-	var light_offset = Vector2(_TEXTURE.get_width() / 2.0, _TEXTURE.get_height() / 2.0)
-
-	_blackness.blend_rect(_light_image, light_rect, grid_position - light_offset)
+	_blackness.blend_rect(_light_image, light_rect, grid_position - _light_offset)
 	$fog_image.texture = ImageTexture.create_from_image(_blackness)
 
