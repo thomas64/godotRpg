@@ -60,9 +60,9 @@ func _on_input_field_text_submitted(new_text):
 
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
-	var save_data: SaveData = ProfileManager.create_profile(_profile_name, _selected_profile)
+	var current_map: String = ProfileManager.create_profile(_profile_name, _selected_profile)
 	AudioManager.fade("bgm_brave")
-	SceneChanger.with_fade_to_world_to_map(save_data.current_map)
+	SceneChanger.with_fade_to_world_to_map(current_map)
 
 
 func _on_back_button_pressed():

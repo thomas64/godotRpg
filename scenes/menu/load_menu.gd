@@ -78,9 +78,9 @@ func _on_load_button_pressed():
 func _on_start_button_pressed():
 	AudioManager.play_sfx("menu_confirm")
 	if ProfileManager.does_file_path_exist_for(_selected_profile):
-		var save_data: SaveData = ProfileManager.load_profile(_selected_profile)
+		var current_map: String = ProfileManager.load_profile(_selected_profile)
 		AudioManager.fade("bgm_brave")
-		SceneChanger.with_fade_to_world_to_map(save_data.current_map)
+		SceneChanger.with_fade_to_world_to_map(current_map)
 	else:
 		$load_menu.hide()
 		$new_menu.show()
@@ -106,8 +106,8 @@ func _on_back_button_pressed():
 func _on_confirm_load_confirmed():
 	AudioManager.stop_all()
 	AudioManager.play_sfx("menu_confirm")
-	var save_data: SaveData = ProfileManager.load_profile(_selected_profile)
-	SceneChanger.with_fade_to_world_to_map(save_data.current_map)
+	var current_map: String = ProfileManager.load_profile(_selected_profile)
+	SceneChanger.with_fade_to_world_to_map(current_map)
 	get_tree().paused = false
 
 

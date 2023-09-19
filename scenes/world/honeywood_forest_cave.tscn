@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://y0xmid33uekt"]
 
 [ext_resource type="TileSet" uid="uid://drphfav6y0fqx" path="res://assets/resources/tilesets.tres" id="1_cgoai"]
 [ext_resource type="PackedScene" path="res://scenes/map/lightmap_camera.tscn" id="2_8iq2s"]
 [ext_resource type="Script" path="res://scenes/map/tile_map.gd" id="2_fsiut"]
 [ext_resource type="Texture2D" uid="uid://ceosdtdclivux" path="res://assets/lightmaps/forest.png" id="3_a68er"]
-[ext_resource type="PackedScene" path="res://scenes/character/player.tscn" id="3_egbqd"]
-[ext_resource type="PackedScene" path="res://scenes/map/map_switcher.tscn" id="4_4men4"]
+[ext_resource type="PackedScene" uid="uid://cb5qamdbvrtbb" path="res://scenes/character/player.tscn" id="3_egbqd"]
+[ext_resource type="PackedScene" uid="uid://ccb81ccuq0ewd" path="res://scenes/map/map_switcher.tscn" id="4_4men4"]
 [ext_resource type="Texture2D" uid="uid://bqirqvum2mjv5" path="res://assets/lightmaps/sunlight.png" id="4_jille"]
+[ext_resource type="Script" path="res://scenes/map/save_point.gd" id="8_37b3d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgrad"]
 
 [node name="honeywood_forest_cave" type="Node2D"]
 
@@ -46,6 +49,7 @@ metadata/step_sound = "grass"
 metadata/audio = ["bgm_journey", "bgs_birds"]
 
 [node name="player" parent="." instance=ExtResource("3_egbqd")]
+position = Vector2(480, 320)
 
 [node name="map_switcher" parent="." instance=ExtResource("4_4men4")]
 position = Vector2(480, 640)
@@ -62,3 +66,13 @@ position = Vector2(480, 624)
 
 [node name="honeywood_cave_1" type="Area2D" parent="."]
 position = Vector2(336, 120)
+
+[node name="save_point" type="Area2D" parent="."]
+script = ExtResource("8_37b3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="save_point"]
+position = Vector2(480, 240)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_tgrad")
+
+[connection signal="body_entered" from="save_point" to="save_point" method="_on_body_entered"]
